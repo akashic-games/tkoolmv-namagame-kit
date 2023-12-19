@@ -68,9 +68,9 @@ import { Window_Base, Window_MenuCommand } from "../windows";
  * @desc Whether to rewrite timer time limit. 1:yes 0:no.
  * @default 1
  *
-* Plugin Command
+ * Plugin Command
  * 
- *   NAMAGAME_START_TIMER : Using the timer in the nicolive games environment.
+ *  NAMAGAME_START_TIMER : Using the timer in the nicolive games environment.
  *
  * This plugin is essential when creating ranking-type nicolive games.
  */
