@@ -77,7 +77,9 @@ var __extends = (this && this.__extends) || (function () {
  * @desc Whether to rewrite timer time limit. 1:yes 0:no.
  * @default 1
  *
- * @help This plugin does not provide plugin commands.
+ * Plugin Command
+ * 
+ *  NAMAGAME_START_TIMER : Using the timer in the nicolive games environment.
  *
  * This plugin is essential when creating ranking-type nicolive games.
  */
@@ -141,7 +143,11 @@ var __extends = (this && this.__extends) || (function () {
  * @desc タイマーの制限時間書き換えを行うかどうか。1:はい、0:いいえ
  * @default 1
  *
- * @help このプラグインには、プラグインコマンドはありません。
+ * プラグインコマンド詳細
+ *  イベントコマンド「プラグインコマンド」から実行。
+ *  （引数の間は半角スペースで区切る）
+ * 
+ *  NAMAGAME_START_TIMER : ニコ生ゲーム環境のタイマーを利用する。
  *
  * ランキング形式のニコ生ゲームを作る時にこのプラグインが必須です。
  */
@@ -221,21 +227,23 @@ var __extends = (this && this.__extends) || (function () {
             g.game.vars.gameState.score = value;
         }
     };
+    // ニコ生ゲーム環境のタイマーのフレーム数を算出
+    function calcTimerFrames() {
+        var fps;
+        if (typeof g === "undefined") {
+            // RPGツクールでのfpsのデフォルト値は60
+            fps = 60;
+        } else {
+            // Akashic Engine でのfpsのデフォルト値は30
+            fps = g.game.fps ?? 30;
+        }
+        var timeLimit = totalTimeLimit - titleTime - graceTime;
+        return timeLimit * fps;
+    }
     // タイマーの制限時間の書き換え
     if (forceNamagameTimer) {
         Game_Timer.prototype.start = function (_count) {
-            var _a;
-            var fps;
-            if (typeof g === "undefined") {
-                // RPGツクールでのfpsのデフォルト値は60
-                fps = 60;
-            }
-            else {
-                // Akashic Engine でのfpsのデフォルト値は30
-                fps = (_a = g.game.fps) !== null && _a !== void 0 ? _a : 30;
-            }
-            var timeLimit = totalTimeLimit - titleTime - graceTime;
-            this._frames = timeLimit * fps;
+            this._frames = calcTimerFrames();
             this._working = true;
         };
     }
@@ -282,4 +290,18 @@ var __extends = (this && this.__extends) || (function () {
     AudioManager.bgsVolume = musicVolume;
     AudioManager.meVolume = soundVolume;
     AudioManager.seVolume = soundVolume;
+
+    // プラグインコマンドを追加定義。
+    var _gameInterpreterPluginCommand = Game_Interpreter.prototype.pluginCommand;
+    Game_Interpreter.prototype.pluginCommand = function(command, _args) {
+        _gameInterpreterPluginCommand.apply(this, arguments);
+        switch (command) {
+            // ニコ生ゲーム環境のタイマーを利用する
+            case "NAMAGAME_START_TIMER":
+                var frames = calcTimerFrames();
+                $gameTimer.start(frames);
+                break;
+            default: break;
+        }
+    }
 })();
