@@ -230,8 +230,7 @@ import { Window_Base, Window_MenuCommand } from "../windows";
 			// RPGツクールでのfpsのデフォルト値は60
 			fps = 60;
 		} else {
-			// Akashic Engine でのfpsのデフォルト値は30
-			fps = g.game.fps ?? 30;
+			fps = g.game.fps;
 		}
 		const timeLimit = totalTimeLimit - titleTime - graceTime;
 		return timeLimit * fps;
@@ -301,7 +300,8 @@ import { Window_Base, Window_MenuCommand } from "../windows";
 				const frames = calcTimerFrames();
 				$gameTimer.start(frames);
 				break;
-			default: break;
+			default:
+				break;
 		}
 	}
 })();

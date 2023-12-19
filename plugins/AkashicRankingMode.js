@@ -234,8 +234,7 @@ var __extends = (this && this.__extends) || (function () {
             // RPGツクールでのfpsのデフォルト値は60
             fps = 60;
         } else {
-            // Akashic Engine でのfpsのデフォルト値は30
-            fps = g.game.fps ?? 30;
+            fps = g.game.fps;
         }
         var timeLimit = totalTimeLimit - titleTime - graceTime;
         return timeLimit * fps;
@@ -301,7 +300,8 @@ var __extends = (this && this.__extends) || (function () {
                 var frames = calcTimerFrames();
                 $gameTimer.start(frames);
                 break;
-            default: break;
+            default:
+                break;
         }
     }
 })();
