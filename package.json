@@ -1,6 +1,6 @@
 {
   "name": "@akashic/tkoolmv-namagame-kit",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "RPGツクールMV製ゲームをニコ生ゲームに変換するツール・テンプレートをまとめたリポジトリです。",
   "scripts": {
     "prepublish": "npm run build",
