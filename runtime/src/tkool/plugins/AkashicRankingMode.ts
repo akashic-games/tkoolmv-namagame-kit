@@ -69,7 +69,7 @@ import { Window_Base, Window_MenuCommand } from "../windows";
  * @default 1
  *
  * Plugin Command
- * 
+ *
  *  NAMAGAME_START_TIMER : Using the timer in the nicolive games environment.
  *
  * This plugin is essential when creating ranking-type nicolive games.
@@ -138,7 +138,7 @@ import { Window_Base, Window_MenuCommand } from "../windows";
  * プラグインコマンド詳細
  *  イベントコマンド「プラグインコマンド」から実行。
  *  （引数の間は半角スペースで区切る）
- * 
+ *
  *  NAMAGAME_START_TIMER : ニコ生ゲーム環境のタイマーを利用する。
  *
  * ランキング形式のニコ生ゲームを作る時にこのプラグインが必須です。
@@ -303,5 +303,5 @@ import { Window_Base, Window_MenuCommand } from "../windows";
 			default:
 				break;
 		}
-	}
+	};
 })();

@@ -365,7 +365,7 @@ export class SceneManager {
 			this.changeScene();
 			this.updateScene();
 		}
-		// this.renderScene();
+		this.renderScene();
 		// this.requestUpdate();
 	}
 
