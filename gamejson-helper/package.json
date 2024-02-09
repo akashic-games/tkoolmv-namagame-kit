@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "npm run build",
     "start": "parcel ./src/index.html --dist-dir ./.run-cache",
-    "build": "rimraf ./dist && parcel build ./src/index.html --no-source-maps --public-url ./",
+    "build": "rimraf ./dist && vite build",
+    "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,7 +15,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@akashic/game-configuration": "^1.10.0",
-    "parcel": "^2.10.3",
-    "rimraf": "^5.0.1"
+    "rimraf": "^5.0.1",
+    "vite": "^5.0.0"
   }
 }
