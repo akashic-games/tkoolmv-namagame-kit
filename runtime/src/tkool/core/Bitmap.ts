@@ -1117,6 +1117,9 @@ export class Bitmap {
 		this._url = url;
 		this._loadingState = "requesting";
 		const aid = g.game._assetManager.resolvePatternsToAssetIds([`/assets/${url}`])[0];
+		if (aid === undefined) {
+			return;
+		}
 		g.game._assetManager.requestAssets([aid], {
 			_onAssetError: (asset, error, retryCallback) => {
 				if (error.retriable) {
