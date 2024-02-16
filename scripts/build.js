@@ -38,4 +38,4 @@ shell.exec(`cd ${gameDirPath} && ${path.resolve(__dirname, "../scripts/node_modu
 
 // gamejson-helperの成果物を配置
 shell.mkdir(gameJsonHelperDirPath);
-shell.cp(path.join(gameJsonHelperSrcDirPath, "dist", "*"), gameJsonHelperDirPath);
+shell.cp("-Rf", path.join(gameJsonHelperSrcDirPath, "dist", "*"), gameJsonHelperDirPath);
