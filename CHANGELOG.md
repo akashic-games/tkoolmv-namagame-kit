@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.2.2
+- gamejson-helper の .js ファイルが相対パスで参照されるように修正
+
 ## 1.2.1
 - gamejson-helper の .js ファイルが同梱されない問題を修正
 
