@@ -1117,7 +1117,10 @@ export class Bitmap {
 		this._url = url;
 		this._loadingState = "requesting";
 		const aid = g.game._assetManager.resolvePatternsToAssetIds([`/assets/${url}`])[0];
+		// 対象のアセットが存在しない場合 requestAssets メソッドの呼び出し時にエラーになるので、それを避けるために直前でエラーハンドリングする
 		if (aid === undefined) {
+			console.log(`Bitmap#_requestImage(): ${url} is not found`);
+			this._onError();
 			return;
 		}
 		g.game._assetManager.requestAssets([aid], {
