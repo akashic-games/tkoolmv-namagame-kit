@@ -1117,7 +1117,7 @@ export class Bitmap {
 		this._url = url;
 		this._loadingState = "requesting";
 		const aid = g.game._assetManager.resolvePatternsToAssetIds([`/assets/${url}`])[0];
-		// 対象のアセットが存在しない場合 requestAssets メソッドの呼び出し時にエラーになるので、それを避けるために直前でエラーハンドリングする
+		// ここでハンドリングしないと requestAssets メソッドの呼び出し時に例外が飛ぶ、且つ例外が飛ぶとオリジナルのコードの addEventListener("error", ...) にあたる処理と異なる動作になってしまう
 		if (aid === undefined) {
 			console.log(`Bitmap#_requestImage(): ${url} is not found`);
 			this._onError();
