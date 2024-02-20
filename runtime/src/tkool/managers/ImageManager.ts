@@ -1,5 +1,6 @@
 import { Bitmap } from "../core/";
 import { ImageCache } from "../core/ImageCache";
+import { RequestQueue } from "../core/RequestQueue";
 
 declare const console: any;
 
@@ -276,38 +277,32 @@ export class ImageManager {
 	}
 
 	static requestNormalBitmap(path: string, hue?: number) {
-		// loadXXX() に対して、requestXXX()はbitmapインスタンスを生成しつつも
-		// ダウンロードの開始は遅延されるもののよう。
-		// ここではかんたんのために、laodNormalBitmap()を利用する
+		const key = this._generateCacheKey(path, hue);
+		let bitmap = this._imageCache.get(key);
+		if (!bitmap) {
+			bitmap = Bitmap.request(path);
+			bitmap.addLoadListener(() => {
+				bitmap.rotateHue(hue);
+			});
+			this._imageCache.add(key, bitmap);
+			this._requestQueue.enqueue(key, bitmap);
+		} else {
+			this._requestQueue.raisePriority(key);
+		}
 
-		// const key = this._generateCacheKey(path, hue);
-		// let bitmap = this._imageCache.get(key);
-		// if (!bitmap) {
-		// 	bitmap = Bitmap.request(path);
-		// 	bitmap.addLoadListener(() => {
-		// 		bitmap.rotateHue(hue);
-		// 	});
-		// 	this._imageCache.add(key, bitmap);
-		// 	this._requestQueue.enqueue(key, bitmap);
-		// } else {
-		// 	this._requestQueue.raisePriority(key);
-		// }
-
-		// return bitmap;
-
-		return this.loadNormalBitmap(path, hue);
+		return bitmap;
 	}
 
 	static update() {
-		// this._requestQueue.update();
+		this._requestQueue.update();
 	}
 
 	static clearRequest() {
-		// this._requestQueue.clear();
+		this._requestQueue.clear();
 	}
 
 	private static _imageCache: ImageCache = new ImageCache();
-	private static _requestQueue: any; // = new RequestQueue();
+	private static _requestQueue: RequestQueue = new RequestQueue();
 	private static _systemReservationId: any; // = Utils.generateRuntimeId();
 
 	private static _defaultReservationId: number;
