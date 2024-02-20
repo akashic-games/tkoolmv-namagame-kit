@@ -5,9 +5,8 @@
   "description": "",
   "scripts": {
     "prepare": "npm run build",
-    "start": "parcel ./src/index.html --dist-dir ./.run-cache",
+    "start": "vite preview",
     "build": "rimraf ./dist && vite build",
-    "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
