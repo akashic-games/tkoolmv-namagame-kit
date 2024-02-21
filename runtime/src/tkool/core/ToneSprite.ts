@@ -78,7 +78,6 @@ export class ToneSprite extends Container {
 				renderer.fillRect(0, 0, width, height, Utils.rgbToCssColor(r1, g1, b1));
 			}
 
-			// Akashic は "difference" をサポートしていない
 			if (Graphics.canUseDifferenceBlend()) {
 				const r2 = Math.max(0, -this._red);
 				const g2 = Math.max(0, -this._green);
