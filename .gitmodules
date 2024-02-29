@@ -1,0 +1,3 @@
+[submodule "module/tkoolmv-namagame-converter"]
+	path = module/tkoolmv-namagame-converter
+	url = https://github.com/akashic-games/tkoolmv-namagame-converter.git
