@@ -11,7 +11,10 @@
     "lint:textlint": "textlint -f pretty-error static/ && textlint -f pretty-error runtime/ && textlint -f pretty-error gamejson-helper/",
     "format": "npm run format:prettier && npm run format:eslint",
     "format:prettier": "prettier --write \"runtime/src/**/*.ts\" --config prettier.config.json && prettier --write \"gamejson-helper/src/**/*.ts\" --config prettier.config.json",
-    "format:eslint": "eslint -c runtime/.eslintrc \"runtime/src/**/*.ts\" --fix"
+    "format:eslint": "eslint -c runtime/.eslintrc \"runtime/src/**/*.ts\" --fix",
+    "release": "npm run release:converter && npm run release:zip",
+    "release:converter": "cd module/tkoolmv-namagame-converter && npm run build-ffmpeg && npm i && npm run release:win",
+    "release:zip": "node scripts/releaseZip.js"
   },
   "author": "DWANGO Co., Ltd.",
   "license": "MIT",
