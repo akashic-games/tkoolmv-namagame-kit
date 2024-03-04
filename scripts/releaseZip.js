@@ -1,6 +1,6 @@
-// キットとコンバーターを1つのzipにまとめて tkoolmv-namagame-kit リポジトリの Rleases にアップロードするジョブ
+// キットとコンバーターを1つのzipにまとめて tkoolmv-namagame-kit リポジトリの Releaseにアップロードするジョブ
 // このスクリプトでは Github CLI を利用するので、実行環境に Github CLI をインストールし、環境変数 GITHUB_CLI_TOKEN に Github トークンを設定する必要がある
-// また、このスクリプト実行前に現バージョンの Rleases を Github に作成しておく必要がある
+// また、このスクリプト実行前に現バージョンの Releaseを Github に作成しておく必要がある
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
