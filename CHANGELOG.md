@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.3.1
+- gamejson-helper で生成される game.json の akashic-runtime のバージョンが 3.7.17-0 になるように
+
+## 1.3.0
+- ツクールMVの「画面の色調変更」機能をサポートできるように
+
 ## 1.2.4
 - リリースGitHub Actionsがエラーのまま続行する問題を修正
 

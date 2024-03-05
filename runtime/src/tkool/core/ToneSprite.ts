@@ -58,13 +58,13 @@ export class ToneSprite extends Container {
 			// 	context.fillRect(0, 0, width, height);
 			// }
 			if (Graphics.canUseSaturationBlend() && this._gray > 0) {
-				renderer.setCompositeOperation("lighter"); // saturationの代わり
-				renderer.opacity(this._gray / 255);
+				renderer.setCompositeOperation("saturation");
+				renderer.setOpacity(this._gray / 255);
 				renderer.fillRect(0, 0, width, height, "white");
 			}
 
 			// context.globalAlpha = 1;
-			renderer.opacity(1);
+			renderer.setOpacity(1);
 			const r1 = Math.max(0, this._red);
 			const g1 = Math.max(0, this._green);
 			const b1 = Math.max(0, this._blue);
@@ -78,7 +78,6 @@ export class ToneSprite extends Container {
 				renderer.fillRect(0, 0, width, height, Utils.rgbToCssColor(r1, g1, b1));
 			}
 
-			// Akashic は "difference" をサポートしていない
 			if (Graphics.canUseDifferenceBlend()) {
 				const r2 = Math.max(0, -this._red);
 				const g2 = Math.max(0, -this._green);
@@ -93,6 +92,13 @@ export class ToneSprite extends Container {
 					// context.globalCompositeOperation = "difference";
 					// context.fillStyle = "#ffffff";
 					// context.fillRect(0, 0, width, height);
+
+					renderer.setCompositeOperation("difference");
+					renderer.fillRect(0, 0, width, height, "white");
+					renderer.setCompositeOperation("lighter");
+					renderer.fillRect(0, 0, width, height, Utils.rgbToCssColor(r2, g2, b2));
+					renderer.setCompositeOperation("difference");
+					renderer.fillRect(0, 0, width, height, "white");
 				}
 			}
 			// context.restore();
