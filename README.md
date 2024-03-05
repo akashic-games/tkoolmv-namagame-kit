@@ -48,6 +48,13 @@ dist/tkoolmv-namagame-kit/game/game.json を static/game.json に上書きして
 npm test
 ```
 
+### リリース方法
+以下のコマンドで、RPG ツクール MV ニコ生ゲーム化キットをzip化したものを Github リポジトリの現バージョンのリリースノートにアップロードします。ただし、Windows 環境でしか動作しません。
+
+```bash
+npm run release
+```
+
 ## ライセンス
 本リポジトリは MIT License の元で公開されています。
 詳しくは [LICENSE](https://github.com/akashic-games/tkoolmv-namagame-kit/blob/main/LICENSE) をご覧ください。
