@@ -263,7 +263,7 @@ export async function makeGamejson(entry: FileSystemEntry): Promise<GameConfigur
 				send: "0"
 			},
 			"akashic-runtime": {
-				version: "~3.7.9-0",
+				version: "~3.7.17-0",
 				flavor: "-canvas"
 			}
 		}
