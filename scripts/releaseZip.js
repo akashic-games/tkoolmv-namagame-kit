@@ -15,25 +15,19 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 (async() => {
 	const version = packageJson["version"];
 	const zipDirPath = path.join(tmpDirPath, `tkoolmv-namagame-kit-${version}`);
-	sh.rm("-Rf", zipDirPath);
+	if (fs.existsSync(zipDirPath)) {
+		sh.rm("-Rf", zipDirPath);
+	}
 	fs.mkdirSync(zipDirPath);
 	sh.cp("-Rf", path.join(tkoolmvKitDirPath, "*"), zipDirPath);
 	sh.cp(path.join(tkoolmvConverDirPath, "*.exe"), zipDirPath);
-	const zipPath = await makeZip(zipDirPath);
-	sh.exec(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
-	sh.exec(`gh release upload "v${version}" "${zipPath}"`);
-})();
-
-async function makeZip(dirPath, zipName) {
-	const zipPath = zipName ? path.join(path.dirname(dirPath), `${zipName}.zip`) : `${dirPath}.zip`;
-	if (fs.existsSync(zipPath)) {
-		sh.rm("-Rf", zipPath);
-	}
+	const zipPath = `${zipDirPath}.zip`;
 	const ostream = fs.createWriteStream(zipPath);
 	const archive = archiver("zip");
 	await archive.pipe(ostream);
-	await archive.glob(`${path.basename(dirPath)}/**`, {cwd: path.relative(process.cwd(), path.dirname(dirPath))});
+	await archive.glob(`${path.basename(zipDirPath)}/**`, {cwd: path.relative(process.cwd(), path.dirname(zipDirPath))});
 	await archive.finalize();
-	sh.rm("-Rf", dirPath);
-	return zipPath;
-}
+	sh.rm("-Rf", zipDirPath);
+	shell.exec(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
+	shell.exec(`gh release upload "v${version}" "${zipPath}"`);
+})();
