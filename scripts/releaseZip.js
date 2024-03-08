@@ -28,6 +28,8 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 	await archive.glob(`${path.basename(zipDirPath)}/**`, {cwd: path.relative(process.cwd(), path.dirname(zipDirPath))});
 	await archive.finalize();
 	sh.rm("-Rf", zipDirPath);
-	shell.exec(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
-	shell.exec(`gh release upload "v${version}" "${zipPath}"`);
+	// zip圧縮が完了するまで若干のラグがあるため、一定時間待機する
+	await new Promise(resolve => setTimeout(() => resolve(), 3000));
+	sh.exec(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
+	sh.exec(`gh release upload "v${version}" "${zipPath}"`);
 })();
