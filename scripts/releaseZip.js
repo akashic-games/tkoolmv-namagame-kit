@@ -9,7 +9,7 @@ const archiver = require("archiver");
 
 const tmpDirPath = fs.mkdtempSync(path.join(os.tmpdir(), "tkoolmv-namagame-kit"));
 const tkoolmvKitDirPath = path.resolve(__dirname, "..", "dist", "tkoolmv-namagame-kit");
-const tkoolmvConverDirPath = path.resolve(__dirname, "..", "module", "tkoolmv-namagame-converter", "dist");
+const tkoolmvConverDirPath = path.resolve(__dirname, "..", "module", "tkoolmv-namagame-converter");
 const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 
 (async() => {
@@ -20,7 +20,9 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 	}
 	fs.mkdirSync(zipDirPath);
 	sh.cp("-Rf", path.join(tkoolmvKitDirPath, "*"), zipDirPath);
-	sh.cp(path.join(tkoolmvConverDirPath, "*.exe"), zipDirPath);
+	const converterPackageJson = require(path.join(tkoolmvConverDirPath, "package.json"));
+	const converterVersion = converterPackageJson["version"];
+	sh.cp(path.join(tkoolmvConverDirPath, "dist", `*${converterVersion}.exe`), zipDirPath);
 	const zipPath = `${zipDirPath}.zip`;
 	const ostream = fs.createWriteStream(zipPath);
 	const archive = archiver("zip");
