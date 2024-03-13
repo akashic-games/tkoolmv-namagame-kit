@@ -25,13 +25,22 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 	sh.cp(path.join(tkoolmvConverDirPath, "dist", `*${converterVersion}.exe`), zipDirPath);
 	const zipPath = `${zipDirPath}.zip`;
 	const ostream = fs.createWriteStream(zipPath);
+
+	// zip圧縮完了の通知が来るまで待機するための処理
+	let resolve;
+	const promise = new Promise(r => { resolve = r });
+	ostream.on("close", () => {
+		console.log(`Completed: ${zipPath}`);
+		resolve();
+	});
+
 	const archive = archiver("zip");
 	await archive.pipe(ostream);
 	await archive.glob(`${path.basename(zipDirPath)}/**`, {cwd: path.relative(process.cwd(), path.dirname(zipDirPath))});
 	await archive.finalize();
 	sh.rm("-Rf", zipDirPath);
-	// zip圧縮が完了するまで若干のラグがあるため、一定時間待機する
-	await new Promise(resolve => setTimeout(() => resolve(), 3000));
+	// zipが不完全な状態でアップロードされるのを防ぐために、zip圧縮完了の通知が来るまで待機
+	await promise;
 	sh.exec(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
 	sh.exec(`gh release upload "v${version}" "${zipPath}"`);
 })();
