@@ -9,31 +9,32 @@ const archiver = require("archiver");
 
 const tmpDirPath = fs.mkdtempSync(path.join(os.tmpdir(), "tkoolmv-namagame-kit"));
 const tkoolmvKitDirPath = path.resolve(__dirname, "..", "dist", "tkoolmv-namagame-kit");
-const tkoolmvConverDirPath = path.resolve(__dirname, "..", "module", "tkoolmv-namagame-converter", "dist");
+const tkoolmvConverDirPath = path.resolve(__dirname, "..", "module", "tkoolmv-namagame-converter");
 const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 
 (async() => {
 	const version = packageJson["version"];
 	const zipDirPath = path.join(tmpDirPath, `tkoolmv-namagame-kit-${version}`);
-	sh.rm("-Rf", zipDirPath);
+	if (fs.existsSync(zipDirPath)) {
+		sh.rm("-Rf", zipDirPath);
+	}
 	fs.mkdirSync(zipDirPath);
 	sh.cp("-Rf", path.join(tkoolmvKitDirPath, "*"), zipDirPath);
-	sh.cp(path.join(tkoolmvConverDirPath, "*.exe"), zipDirPath);
-	const zipPath = await makeZip(zipDirPath);
+	const converterPackageJson = require(path.join(tkoolmvConverDirPath, "package.json"));
+	const converterVersion = converterPackageJson["version"];
+	sh.cp(path.join(tkoolmvConverDirPath, "dist", `*${converterVersion}.exe`), zipDirPath);
+	const zipPath = `${zipDirPath}.zip`;
+	const ostream = fs.createWriteStream(zipPath);
+	// zip圧縮完了の通知が来るまで待機するための処理
+	const streamClosePromise = new Promise(resolve => ostream.on("close", resolve));
+	const archive = archiver("zip");
+	await archive.pipe(ostream);
+	await archive.glob(`${path.basename(zipDirPath)}/**`, {cwd: path.relative(process.cwd(), path.dirname(zipDirPath))});
+	await archive.finalize();
+	sh.rm("-Rf", zipDirPath);
+	// zipが不完全な状態でアップロードされるのを防ぐために、zip圧縮完了の通知が来るまで待機
+	await streamClosePromise;
+	console.log(`Completed: ${zipPath}`);
 	sh.exec(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
 	sh.exec(`gh release upload "v${version}" "${zipPath}"`);
 })();
-
-async function makeZip(dirPath, zipName) {
-	const zipPath = zipName ? path.join(path.dirname(dirPath), `${zipName}.zip`) : `${dirPath}.zip`;
-	if (fs.existsSync(zipPath)) {
-		sh.rm("-Rf", zipPath);
-	}
-	const ostream = fs.createWriteStream(zipPath);
-	const archive = archiver("zip");
-	await archive.pipe(ostream);
-	await archive.glob(`${path.basename(dirPath)}/**`, {cwd: path.relative(process.cwd(), path.dirname(dirPath))});
-	await archive.finalize();
-	sh.rm("-Rf", dirPath);
-	return zipPath;
-}
