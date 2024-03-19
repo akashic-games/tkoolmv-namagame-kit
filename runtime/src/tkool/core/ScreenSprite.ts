@@ -14,6 +14,7 @@ export class ScreenSprite extends Container {
 	}
 
 	initialize(blackOrWhite?: "black" | "white") {
+		super.initialize();
 		// PIXI.Container.call(this);
 		// this._graphics = new PIXI.Graphics();
 		// this.addChild(this._graphics);

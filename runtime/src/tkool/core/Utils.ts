@@ -126,4 +126,15 @@ export class Utils {
 
 		return array1.every((val, index) => val === array2[index]);
 	}
+
+	/**
+	 * Checks whether the platform is NW.js.
+	 *
+	 * @static
+	 * @method isNwjs
+	 * @return {Boolean} True if the platform is NW.js
+	 */
+	static isNwjs() {
+		return typeof require === "function";
+	}
 }

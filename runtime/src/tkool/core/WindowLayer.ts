@@ -21,6 +21,7 @@ export class WindowLayer extends Container {
 	}
 
 	initialize() {
+		super.initialize();
 		// PIXI.Container.call(this);
 		// this._width = 0;
 		// this._height = 0;
