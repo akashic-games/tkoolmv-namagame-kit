@@ -36,5 +36,5 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 	await streamClosePromise;
 	console.log(`Completed: ${zipPath}`);
 	sh.exec(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
-	sh.exec(`gh release upload "v${version}" "${zipPath}"`);
+	sh.exec(`gh release upload "v${version}" "${zipPath}" --clobber`);
 })();
