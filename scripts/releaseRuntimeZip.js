@@ -22,5 +22,5 @@ const tkoolmvKitRuntimeZipPath = path.resolve(__dirname, "..", "dist", `tkoolmv-
 	// zipが不完全な状態でアップロードされるのを防ぐために、zip圧縮完了の通知が来るまで待機
 	await streamClosePromise;
 	console.log(`Completed: ${tkoolmvKitRuntimeZipPath}`);
-	sh.exec(`gh release upload "v${version}" "${tkoolmvKitRuntimeZipPath}"`);
+	sh.exec(`gh release upload "v${version}" "${tkoolmvKitRuntimeZipPath}" --clobber`);
 })();
