@@ -14,6 +14,12 @@ export class Stage {
 	protected _root: Container;
 
 	constructor() {
+		if (Object.getPrototypeOf(this) === Stage.prototype) {
+			this.initialize();
+		}
+	}
+
+	initialize() {
 		this.scene = new g.Scene({ game: g.game, name: this.constructor.name });
 		this._root = new Container();
 		this.touchEntity = new g.E({

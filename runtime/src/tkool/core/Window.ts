@@ -44,6 +44,7 @@ export class Window extends PIXI.Container {
 	}
 
 	initialize(..._args: any[]) {
+		super.initialize(_args);
 		this._isWindow = true;
 		this._windowskin = null;
 		this._width = 0;

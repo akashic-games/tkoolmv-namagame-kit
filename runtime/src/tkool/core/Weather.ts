@@ -25,6 +25,7 @@ export class Weather extends Container {
 	}
 
 	initialize() {
+		super.initialize();
 		// this._width = Graphics.width;
 		// this._height = Graphics.height;
 
