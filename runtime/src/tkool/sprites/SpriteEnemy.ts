@@ -91,10 +91,12 @@ export class Sprite_Enemy extends Sprite_Battler {
 	}
 
 	updateStateSprite() {
-		this._stateIconSprite.y = -Math.round((this.bitmap.height + 40) * 0.9);
-		if (this._stateIconSprite.y < 20 - this.y) {
-			this._stateIconSprite.y = 20 - this.y;
-		}
+		// this._stateIconSprite.y = -Math.round((this.bitmap.height + 40) * 0.9);
+		// if (this._stateIconSprite.y < 20 - this.y) {
+		// 	this._stateIconSprite.y = 20 - this.y;
+		// }
+		this._stateIconSprite.x = this.width / 2 - Sprite_StateIcon._iconWidth / 2;
+		this._stateIconSprite.y = - 1 * Sprite_StateIcon._iconHeight / 2;
 	}
 
 	initVisibility() {
