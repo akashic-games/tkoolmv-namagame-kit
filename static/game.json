@@ -818,6 +818,11 @@
 			"type": "script",
 			"path": "script/tkool/windows/WindowSavefileList.js",
 			"global": true
+		},
+		"alterGlobalObjects": {
+			"type": "script",
+			"path": "script/alterGlobalObjects.js",
+			"global": true
 		}
 	},
 	"environment": {
