@@ -819,9 +819,9 @@
 			"path": "script/tkool/windows/WindowSavefileList.js",
 			"global": true
 		},
-		"alterGlobalObjects": {
+		"createStandardBuiltinObjectExtensions": {
 			"type": "script",
-			"path": "script/alterGlobalObjects.js",
+			"path": "script/createStandardBuiltinObjectExtensions.js",
 			"global": true
 		}
 	},
