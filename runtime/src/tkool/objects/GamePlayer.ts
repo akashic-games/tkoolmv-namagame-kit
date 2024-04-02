@@ -1,5 +1,6 @@
-import { Graphics, TouchInput } from "../core";
-import { $dataSystem, $gameParty, $gameMap, $gameTemp, $gameMessage, $gameSystem } from "../managers/DataManager";
+import { Graphics, TouchInput, Utils } from "../core";
+import { BattleManager } from "../managers";
+import { $dataSystem, $gameParty, $gameMap, $gameTemp, $gameMessage, $gameSystem, $dataTroops } from "../managers/DataManager";
 import { Game_Character } from "./GameCharacter";
 import { Game_Followers } from "./GameFollowers";
 
@@ -222,24 +223,20 @@ export class Game_Player extends Game_Character {
 	}
 
 	meetsEncounterConditions(encounter: any): boolean {
-		return encounter.regionSet.length === 0 || encounter.regionSet.contains(this.regionId());
+		return encounter.regionSet.length === 0 || Utils.contains(encounter.regionSet, this.regionId());
 	}
 
 	executeEncounter() {
-		// TODO: BattleManagerを移植するまではとりあえずfalseを返す
-
 		if (!$gameMap.isEventRunning() && this._encounterCount <= 0) {
 			this.makeEncounterCount();
-			// const troopId = this.makeEncounterTroopId();
-			// if ($dataTroops[troopId]) {
-			// 	BattleManager.setup(troopId, true, false);
-			// 	BattleManager.onEncounter();
-			// 	return true;
-			// } else {
-			// 	return false;
-			// }
-
-			return false;
+			const troopId = this.makeEncounterTroopId();
+			if ($dataTroops[troopId]) {
+				BattleManager.setup(troopId, true, false);
+				BattleManager.onEncounter();
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
