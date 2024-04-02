@@ -818,6 +818,11 @@
 			"type": "script",
 			"path": "script/tkool/windows/WindowSavefileList.js",
 			"global": true
+		},
+		"createStandardBuiltinObjectExtensions": {
+			"type": "script",
+			"path": "script/createStandardBuiltinObjectExtensions.js",
+			"global": true
 		}
 	},
 	"environment": {
