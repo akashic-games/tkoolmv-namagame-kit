@@ -6,9 +6,7 @@
   "author": "",
   "license": "",
   "devDependencies": {
-    "@akashic/akashic-cli-scan": "^0.16.16",
     "archiver": "^5.3.1",
-    "marked": "^5.1.0",
     "shelljs": "^0.8.5"
   }
 }
