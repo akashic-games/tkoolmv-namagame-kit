@@ -55,6 +55,7 @@ export class DataManager {
 	static _globalId: string = "RPGMV";
 	static _lastAccessedId: number = 1;
 	static _errorUrl: string = null;
+	static _onReset: g.Trigger<void> = new g.Trigger<void>();
 
 	static _requestedDataNames: Array<{ name: string; src: string }> = [];
 
@@ -252,6 +253,7 @@ export class DataManager {
 		$gameParty.setupStartingMembers();
 		$gamePlayer.reserveTransfer($dataSystem.startMapId, $dataSystem.startX, $dataSystem.startY);
 		Graphics.frameCount = 0;
+		this._onReset.fire();
 	}
 
 	static setupBattleTest() {

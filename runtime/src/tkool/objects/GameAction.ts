@@ -94,10 +94,7 @@ let TextManager: typeof TextManager_;
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
 // 未定義の全GameObjectに値を代入。ただし定義済みの場合は何もしない
-const setGameObjects = () => {
-	if ($gameVariables) {
-		return;
-	}
+function setGameObjects() {
 	$gameVariables = $gameVariables_;
 	$gameSystem = $gameSystem_;
 	$gameSwitches = $gameSwitches_;
@@ -138,7 +135,13 @@ const setGameObjects = () => {
 	SceneManager = SceneManager_;
 	SoundManager = SoundManager_;
 	TextManager = TextManager_;
-};
+}
+
+export function setUpGlobalVariablesInGameAction() {
+	if (!DataManager_._onReset.contains(setGameObjects)) {
+		DataManager_._onReset.add(setGameObjects);
+	}
+}
 
 export class Game_Action {
 	static EFFECT_RECOVER_HP: number = 11;
@@ -666,7 +669,6 @@ export class Game_Action {
 			/* eslint-enable @typescript-eslint/no-unused-vars */
 			// const sign = ([3, 4].contains(item.damage.type) ? -1 : 1);
 			const sign = [3, 4].indexOf(item.damage.type) >= 0 ? -1 : 1;
-			setGameObjects();
 			// eslint-disable-next-line no-eval
 			let value = Math.max(eval(item.damage.formula), 0) * sign;
 			if (isNaN(value)) value = 0;

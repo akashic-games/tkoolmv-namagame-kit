@@ -90,10 +90,7 @@ let TextManager: typeof TextManager_;
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
 // 未定義の全GameObjectに値を代入。ただし定義済みの場合は何もしない
-const setGameObjects = () => {
-	if ($gameVariables) {
-		return;
-	}
+function setGameObjects() {
 	$gameVariables = $gameVariables_;
 	$gameSystem = $gameSystem_;
 	$gameSwitches = $gameSwitches_;
@@ -134,7 +131,13 @@ const setGameObjects = () => {
 	SceneManager = SceneManager_;
 	SoundManager = SoundManager_;
 	TextManager = TextManager_;
-};
+}
+
+export function setUpGlobalVariablesInGameCharacter() {
+	if (!DataManager_._onReset.contains(setGameObjects)) {
+		DataManager_._onReset.add(setGameObjects);
+	}
+}
 
 function randomInt(max: number) {
 	return Math.floor(max * g.game.vars.random.generate());
@@ -407,7 +410,6 @@ export class Game_Character extends Game_CharacterBase {
 				AudioManager_.playSe(params[0]);
 				break;
 			case gc.ROUTE_SCRIPT:
-				setGameObjects();
 				// eslint-disable-next-line no-eval
 				eval(params[0]); // TODO: evalしている!!
 				break;

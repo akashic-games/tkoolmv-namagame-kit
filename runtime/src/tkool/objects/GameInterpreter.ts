@@ -95,10 +95,7 @@ let TextManager: typeof TextManager_;
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
 // 未定義の全GameObjectに値を代入。ただし定義済みの場合は何もしない
-const setGameObjects = () => {
-	if ($gameVariables) {
-		return;
-	}
+function setGameObjects() {
 	$gameVariables = $gameVariables_;
 	$gameSystem = $gameSystem_;
 	$gameSwitches = $gameSwitches_;
@@ -139,7 +136,13 @@ const setGameObjects = () => {
 	SceneManager = SceneManager_;
 	SoundManager = SoundManager_;
 	TextManager = TextManager_;
-};
+}
+
+export function setUpGlobalVariablesInGameInterpreter() {
+	if (!DataManager_._onReset.contains(setGameObjects)) {
+		DataManager_._onReset.add(setGameObjects);
+	}
+}
 
 export class Game_Interpreter {
 	private _depth: number;
@@ -829,7 +832,6 @@ export class Game_Interpreter {
 				result = false; // TODO: impl
 				break;
 			case 12: // Script
-				setGameObjects();
 				// eslint-disable-next-line no-eval
 				result = !!eval(this._params[1]);
 				break;
@@ -967,7 +969,6 @@ export class Game_Interpreter {
 				value = this.gameDataOperand(this._params[4], this._params[5], this._params[6]);
 				break;
 			case 4: // Script
-				setGameObjects();
 				// eslint-disable-next-line no-eval
 				value = eval(this._params[4]);
 				break;
@@ -2076,7 +2077,6 @@ export class Game_Interpreter {
 			script += this.currentCommand().parameters[0] + "\n";
 		}
 
-		setGameObjects();
 		// eslint-disable-next-line no-eval
 		eval(script);
 		return true;
