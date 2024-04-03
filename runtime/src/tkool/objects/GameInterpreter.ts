@@ -94,7 +94,7 @@ let TextManager: typeof TextManager_;
 /* eslint-enable @typescript-eslint/naming-convention */
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
-// 未定義の全GameObjectに値を代入。ただし定義済みの場合は何もしない
+// 未定義の全GameObjectに値を代入
 function setGameObjects() {
 	$gameVariables = $gameVariables_;
 	$gameSystem = $gameSystem_;
@@ -138,7 +138,9 @@ function setGameObjects() {
 	TextManager = TextManager_;
 }
 
-export function setUpGlobalVariablesInGameInterpreter() {
+// スクリプト(eval)で利用するグローバル変数の初期化を可能にする関数
+// エントリポイントでのみ呼び出す想定
+export function registerResetHandlerForGameInterpreter() {
 	if (!DataManager_._onReset.contains(setGameObjects)) {
 		DataManager_._onReset.add(setGameObjects);
 	}

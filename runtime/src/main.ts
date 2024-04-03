@@ -11,9 +11,9 @@ export function main(param: GameMainParameterObject): void {
 	if (plugins) {
 		mv.PluginManager.setup(JSON.parse(plugins.data));
 	}
-	mv.setUpGlobalVariablesInGameAction();
-	mv.setUpGlobalVariablesInGameCharacter();
-	mv.setUpGlobalVariablesInGameInterpreter();
+	mv.registerResetHandlerForGameAction();
+	mv.registerResetHandlerForGameCharacter();
+	mv.registerResetHandlerForGameInterpreter();
 	mv.SceneManager.run(mv.Scene_Boot);
 	mv.SceneManager.update();
 }
