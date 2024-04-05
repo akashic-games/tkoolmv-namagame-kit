@@ -4,31 +4,6 @@
 	"fps": 60,
 	"main": "./script/_bootstrap.js",
 	"assets": {
-		"tkool_core_index": {
-			"type": "script",
-			"path": "script/tkool/core/index.js",
-			"global": true
-		},
-		"tkool_managers_index": {
-			"type": "script",
-			"path": "script/tkool/managers/index.js",
-			"global": true
-		},
-		"tkool_scenes_index": {
-			"type": "script",
-			"path": "script/tkool/scenes/index.js",
-			"global": true
-		},
-		"tkool_sprites_index": {
-			"type": "script",
-			"path": "script/tkool/sprites/index.js",
-			"global": true
-		},
-		"tkool_objects_index": {
-			"type": "script",
-			"path": "script/tkool/objects/index.js",
-			"global": true
-		},
 		"tkool_PIXI_index": {
 			"type": "script",
 			"path": "script/tkool/PIXI/index.js",
@@ -37,11 +12,6 @@
 		"tkool_PIXI_filters_index": {
 			"type": "script",
 			"path": "script/tkool/PIXI/filters/index.js",
-			"global": true
-		},
-		"tkool_windows_index": {
-			"type": "script",
-			"path": "script/tkool/windows/index.js",
 			"global": true
 		},
 		"main": {
@@ -782,6 +752,16 @@
 		"DTextPicture": {
 			"type": "script",
 			"path": "script/tkool/plugins/DTextPicture.js",
+			"global": true
+		},
+		"RequestQueue": {
+			"type": "script",
+			"path": "script/tkool/core/RequestQueue.js",
+			"global": true
+		},
+		"globals": {
+			"type": "script",
+			"path": "script/tkool/managers/globals.js",
 			"global": true
 		}
 	},
