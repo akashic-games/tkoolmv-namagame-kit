@@ -1,7 +1,8 @@
-import { Graphics } from "../core";
-import { ImageManager, SoundManager } from "../managers";
-import { $gameSystem } from "../managers/DataManager";
-import type { Game_Enemy } from "../objects";
+import { Graphics } from "../core/Graphics";
+import { $gameSystem } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import { SoundManager } from "../managers/SoundManager";
+import type { Game_Enemy } from "../objects/GameEnemy";
 import { Sprite_Battler } from "./SpriteBattler";
 import { Sprite_StateIcon } from "./SpriteStateIcon";
 

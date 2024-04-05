@@ -1,4 +1,5 @@
-import { Sprite, Utils } from "../core";
+import { Sprite } from "../core/Sprite";
+import { Utils } from "../core/Utils";
 import { Sprite_Animation } from "./SpriteAnimation";
 
 export class Sprite_Base extends Sprite {

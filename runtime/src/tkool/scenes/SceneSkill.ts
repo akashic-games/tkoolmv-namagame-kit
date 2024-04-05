@@ -1,6 +1,6 @@
-import { Graphics } from "../core";
-import { SoundManager } from "../managers";
-import type { Game_Actor } from "../objects";
+import { Graphics } from "../core/Graphics";
+import { SoundManager } from "../managers/SoundManager";
+import type { Game_Actor } from "../objects/GameActor";
 import { Window_SkillList } from "../windows/WindowSkillList";
 import { Window_SkillStatus } from "../windows/WindowSkillStatus";
 import { Window_SkillType } from "../windows/WindowSkillType";

@@ -1,5 +1,5 @@
-import { Graphics } from "../core";
-import { SoundManager } from "../managers";
+import { Graphics } from "../core/Graphics";
+import { SoundManager } from "../managers/SoundManager";
 import { Window_EquipCommand } from "../windows/WindowEquipCommand";
 import { Window_EquipItem } from "../windows/WindowEquipItem";
 import { Window_EquipSlot } from "../windows/WindowEquipSlot";

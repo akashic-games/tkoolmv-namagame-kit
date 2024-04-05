@@ -1,4 +1,4 @@
-import { SceneManager } from "../managers";
+import { SceneManager } from "../managers/SceneManager";
 import { Window_GameEnd } from "../windows/WindowGameEnd";
 import { Scene_MenuBase } from "./SceneMenuBase";
 import { Scene_Title } from "./SceneTitle";

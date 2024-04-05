@@ -1,4 +1,4 @@
-import { $gameParty } from "../managers/DataManager";
+import { $gameParty } from "../managers/globals";
 import { Window_BattleStatus } from "./WindowBattleStatus";
 
 export class Window_BattleActor extends Window_BattleStatus {

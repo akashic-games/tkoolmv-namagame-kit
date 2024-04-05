@@ -1,5 +1,8 @@
-import { Graphics, Bitmap, Sprite, Utils } from "../core";
 import { Container, Point } from "../PIXI";
+import { Bitmap } from "./Bitmap";
+import { Graphics } from "./Graphics";
+import { Sprite } from "./Sprite";
+import { Utils } from "./Utils";
 
 export class Tilemap extends Container {
 	static TILE_ID_B: number = 0;

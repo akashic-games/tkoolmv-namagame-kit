@@ -1,6 +1,6 @@
-import { Sprite } from "../core";
-import { ImageManager } from "../managers";
-import type { Game_Battler } from "../objects";
+import { Sprite } from "../core/Sprite";
+import { ImageManager } from "../managers/ImageManager";
+import type { Game_Battler } from "../objects/GameBattler";
 
 export class Sprite_StateIcon extends Sprite {
 	static _iconWidth: number = 32;

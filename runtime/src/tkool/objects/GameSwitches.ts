@@ -1,4 +1,4 @@
-import { $dataSystem, $gameMap } from "../managers/DataManager";
+import { $dataSystem, $gameMap, set$gameSwitchesFactory } from "../managers/globals";
 
 export class Game_Switches {
 	private _data: { [key: number]: any };
@@ -30,3 +30,7 @@ export class Game_Switches {
 		$gameMap.requestRefresh();
 	}
 }
+
+set$gameSwitchesFactory(() => {
+	return new Game_Switches();
+});

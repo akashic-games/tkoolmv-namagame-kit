@@ -1,5 +1,6 @@
-import { Graphics } from "../core";
-import { DataManager, TextManager } from "../managers";
+import { Graphics } from "../core/Graphics";
+import { DataManager } from "../managers/DataManager";
+import { TextManager } from "../managers/TextManager";
 import { Window_Command } from "./WindowCommand";
 
 export class Window_TitleCommand extends Window_Command {

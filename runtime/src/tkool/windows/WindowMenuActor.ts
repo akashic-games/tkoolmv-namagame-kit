@@ -1,5 +1,6 @@
-import { $gameParty, DataManager } from "../managers/DataManager";
-import { Game_Action } from "../objects";
+import { DataManager } from "../managers/DataManager";
+import { $gameParty } from "../managers/globals";
+import { Game_Action } from "../objects/GameAction";
 import { Window_MenuStatus } from "./WindowMenuStatus";
 
 export class Window_MenuActor extends Window_MenuStatus {

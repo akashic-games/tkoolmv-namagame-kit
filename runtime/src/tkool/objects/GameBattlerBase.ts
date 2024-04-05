@@ -1,5 +1,5 @@
-import { DataManager } from "../managers";
-import { $dataStates, $gameParty, $dataSkills } from "../managers/DataManager";
+import { DataManager } from "../managers/DataManager";
+import { $dataStates, $gameParty, $dataSkills } from "../managers/globals";
 
 export class Game_BattlerBase {
 	static TRAIT_ELEMENT_RATE: number = 11;

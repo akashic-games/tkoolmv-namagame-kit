@@ -1,5 +1,9 @@
-import { Graphics, Bitmap, Sprite, ScreenSprite, Utils } from "../core";
 import { Container, Point } from "../PIXI";
+import { Bitmap } from "./Bitmap";
+import { Graphics } from "./Graphics";
+import { ScreenSprite } from "./ScreenSprite";
+import { Sprite } from "./Sprite";
+import { Utils } from "./Utils";
 
 // export interface WeatherParameterObject extends ContainerParameterObject {
 

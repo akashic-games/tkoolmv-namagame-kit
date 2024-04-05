@@ -1,6 +1,9 @@
-import { Graphics } from "../core";
-import { ImageManager, SceneManager, DataManager, SoundManager } from "../managers";
-import { $dataSystem } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { DataManager } from "../managers/DataManager";
+import { $dataSystem } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import { SceneManager } from "../managers/SceneManager";
+import { SoundManager } from "../managers/SoundManager";
 import { Scene_Base } from "./SceneBase";
 import { Scene_Title } from "./SceneTitle";
 

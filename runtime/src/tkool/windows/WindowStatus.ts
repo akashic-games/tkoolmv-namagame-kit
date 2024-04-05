@@ -1,6 +1,7 @@
-import { Graphics, Utils } from "../core";
-import { TextManager } from "../managers";
-import type { Game_Actor } from "../objects";
+import { Graphics } from "../core/Graphics";
+import { Utils } from "../core/Utils";
+import { TextManager } from "../managers/TextManager";
+import type { Game_Actor } from "../objects/GameActor";
 import { Window_Selectable } from "./WindowSelectable";
 
 export class Window_Status extends Window_Selectable {

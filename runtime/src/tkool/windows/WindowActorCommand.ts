@@ -1,7 +1,7 @@
-import { Graphics } from "../core";
-import { TextManager } from "../managers";
-import { $dataSystem } from "../managers/DataManager";
-import type { Game_Actor } from "../objects";
+import { Graphics } from "../core/Graphics";
+import { $dataSystem } from "../managers/globals";
+import { TextManager } from "../managers/TextManager";
+import type { Game_Actor } from "../objects/GameActor";
 import { Window_Command } from "./WindowCommand";
 
 export class Window_ActorCommand extends Window_Command {

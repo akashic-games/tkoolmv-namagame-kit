@@ -1,6 +1,11 @@
-import { Graphics, Sprite, Tilemap, Weather, TilingSprite, Utils } from "../core";
-import { ImageManager } from "../managers";
-import { $gameMap, $gamePlayer, $gameScreen } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { Sprite } from "../core/Sprite";
+import { Tilemap } from "../core/Tilemap";
+import { TilingSprite } from "../core/TilingSprite";
+import { Utils } from "../core/Utils";
+import { Weather } from "../core/Weather";
+import { $gameMap, $gamePlayer, $gameScreen } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
 import { Sprite_Character } from "./SpriteCharacter";
 import { Sprite_Destination } from "./SpriteDestination";
 import { Spriteset_Base } from "./SpritesetBase";

@@ -1,5 +1,5 @@
-import { Utils } from "../core";
-import { $dataCommonEvents } from "../managers/DataManager";
+import { Utils } from "../core/Utils";
+import { $dataCommonEvents, set$gameTempFactory } from "../managers/globals";
 
 export class Game_Temp {
 	private _isPlaytest: boolean;
@@ -60,3 +60,7 @@ export class Game_Temp {
 		return this._destinationY;
 	}
 }
+
+set$gameTempFactory(() => {
+	return new Game_Temp();
+});

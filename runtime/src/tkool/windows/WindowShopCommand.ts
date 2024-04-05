@@ -1,4 +1,4 @@
-import { TextManager } from "../managers";
+import { TextManager } from "../managers/TextManager";
 import { Window_HorzCommand } from "./WindowHorzCommand";
 
 export class Window_ShopCommand extends Window_HorzCommand {

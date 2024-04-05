@@ -40,7 +40,7 @@ export class PluginManager {
 		if (!g.game.assets[name]) {
 			throw new Error("not found asset:");
 		}
-		require(`../plugins/${name}`);
+		g.game._moduleManager._require(`${name}`);
 	}
 
 	static onError(e: any) {

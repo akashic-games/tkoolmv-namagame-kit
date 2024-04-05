@@ -1,11 +1,16 @@
-import { Utils } from "../core";
-import { AudioManager, SceneManager, TextManager, SoundManager } from "../managers";
-import { $gameTroop, $gameScreen, $gameParty, $gameSystem, $gameMessage } from "../managers/DataManager";
-import type { Game_Battler, Game_Actor } from "../objects";
-import { Game_Action } from "../objects";
-import { Scene_Gameover } from "../scenes";
-import type { Spriteset_Battle } from "../sprites";
-import type { Window_BattleLog, Window_BattleStatus } from "../windows";
+import { Utils } from "../core/Utils";
+import { Game_Action } from "../objects/GameAction";
+import type { Game_Actor } from "../objects/GameActor";
+import type { Game_Battler } from "../objects/GameBattler";
+import { Scene_Gameover } from "../scenes/SceneGameOver";
+import type { Spriteset_Battle } from "../sprites/SpritesetBattle";
+import type { Window_BattleLog } from "../windows/WindowBattleLog";
+import type { Window_BattleStatus } from "../windows/WindowBattleStatus";
+import { AudioManager } from "./AudioManager";
+import { $gameMessage, $gameParty, $gameScreen, $gameSystem, $gameTroop } from "./globals";
+import { SceneManager } from "./SceneManager";
+import { SoundManager } from "./SoundManager";
+import { TextManager } from "./TextManager";
 
 export class BattleManager {
 	static setup(troopId: number, canEscape: boolean, canLose: boolean) {

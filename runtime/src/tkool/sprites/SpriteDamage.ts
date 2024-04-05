@@ -1,7 +1,7 @@
-import type { Bitmap } from "../core";
-import { Sprite } from "../core";
-import { ImageManager } from "../managers";
-import type { Game_Battler } from "../objects";
+import type { Bitmap } from "../core/Bitmap";
+import { Sprite } from "../core/Sprite";
+import { ImageManager } from "../managers/ImageManager";
+import type { Game_Battler } from "../objects/GameBattler";
 
 export class Sprite_Damage extends Sprite {
 	private _duration: number;

@@ -1,5 +1,6 @@
-import { DataManager, SoundManager } from "../managers";
-import { $dataStates, $gameParty, $dataSystem } from "../managers/DataManager";
+import { DataManager } from "../managers/DataManager";
+import { $dataStates, $gameParty, $dataSystem } from "../managers/globals";
+import { SoundManager } from "../managers/SoundManager";
 import { Game_Action } from "./GameAction";
 import { Game_ActionResult } from "./GameActionResult";
 import { Game_BattlerBase } from "./GameBattlerBase";

@@ -1,5 +1,5 @@
-import { DataManager } from "../managers";
-import { $gameParty } from "../managers/DataManager";
+import { DataManager } from "../managers/DataManager";
+import { $gameParty } from "../managers/globals";
 import { Window_Selectable } from "./WindowSelectable";
 
 export class Window_ItemList extends Window_Selectable {

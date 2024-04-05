@@ -1,5 +1,5 @@
-import { $dataSystem } from "../managers/DataManager";
-import type { Game_Actor } from "../objects";
+import { $dataSystem } from "../managers/globals";
+import type { Game_Actor } from "../objects/GameActor";
 import type { Window_EquipItem } from "./WindowEquipItem";
 import type { Window_EquipStatus } from "./WindowEquipStatus";
 import { Window_Selectable } from "./WindowSelectable";

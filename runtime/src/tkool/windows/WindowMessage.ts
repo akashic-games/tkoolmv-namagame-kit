@@ -1,7 +1,9 @@
-import type { Bitmap } from "../core";
-import { Graphics, TouchInput, Utils } from "../core";
-import { ImageManager } from "../managers";
-import { $gameMessage } from "../managers/DataManager";
+import type { Bitmap } from "../core/Bitmap";
+import { Graphics } from "../core/Graphics";
+import { TouchInput } from "../core/TouchInput";
+import { Utils } from "../core/Utils";
+import { $gameMessage } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
 import type { TextState } from "./WindowBase";
 import { Window_Base } from "./WindowBase";
 import { Window_ChoiceList } from "./WindowChoiceList";

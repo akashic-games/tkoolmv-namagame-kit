@@ -1,6 +1,11 @@
-import type { Bitmap, Stage } from "../core";
-import { Sprite, ScreenSprite, Utils, Graphics } from "../core";
-import { ImageManager, AudioManager } from "../managers";
+import type { Bitmap } from "../core/Bitmap";
+import { Graphics } from "../core/Graphics";
+import { ScreenSprite } from "../core/ScreenSprite";
+import { Sprite } from "../core/Sprite";
+import type { Stage } from "../core/Stage";
+import { Utils } from "../core/Utils";
+import { AudioManager } from "../managers/AudioManager";
+import { ImageManager } from "../managers/ImageManager";
 import type { Container } from "../PIXI";
 
 export class Sprite_Animation extends Sprite {

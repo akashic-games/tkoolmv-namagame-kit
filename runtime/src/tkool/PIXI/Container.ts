@@ -1,5 +1,5 @@
-import { Utils } from "../core";
-import type { Filter } from "./filters";
+import { Utils } from "../core/Utils";
+import type { Filter } from "./filters/Filter";
 import { ObservablePoint } from "./ObservablePoint";
 import type { Point } from "./Point";
 import type { Rectangle } from "./Rectangle";

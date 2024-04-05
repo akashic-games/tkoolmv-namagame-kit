@@ -1,7 +1,12 @@
-import { Graphics, Bitmap, Sprite } from "../core";
-import { ImageManager, AudioManager, SceneManager, DataManager } from "../managers";
-import { $dataSystem } from "../managers/DataManager";
-import { Window_TitleCommand } from "../windows";
+import { Bitmap } from "../core/Bitmap";
+import { Graphics } from "../core/Graphics";
+import { Sprite } from "../core/Sprite";
+import { AudioManager } from "../managers/AudioManager";
+import { DataManager } from "../managers/DataManager";
+import { $dataSystem } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import { SceneManager } from "../managers/SceneManager";
+import { Window_TitleCommand } from "../windows/WindowTitleCommand";
 import { Scene_Base } from "./SceneBase";
 import { Scene_Map } from "./SceneMap";
 

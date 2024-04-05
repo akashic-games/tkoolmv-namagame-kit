@@ -1,4 +1,4 @@
-import { Graphics } from "../core";
+import { Graphics } from "../core/Graphics";
 import { Window_Base } from "./WindowBase";
 
 export class Window_Help extends Window_Base {

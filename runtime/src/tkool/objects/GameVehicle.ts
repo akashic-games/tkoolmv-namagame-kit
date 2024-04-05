@@ -1,5 +1,5 @@
-import { AudioManager } from "../managers";
-import { $gameSystem, $dataSystem, $gameMap, $gamePlayer } from "../managers/DataManager";
+import { AudioManager } from "../managers/AudioManager";
+import { $gameSystem, $dataSystem, $gameMap, $gamePlayer } from "../managers/globals";
 import { Game_Character } from "./GameCharacter";
 
 export class Game_Vehicle extends Game_Character {

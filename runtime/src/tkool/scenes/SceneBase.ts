@@ -1,5 +1,11 @@
-import { Graphics, Utils, WindowLayer, ScreenSprite, Stage } from "../core";
-import { SceneManager, ImageManager, AudioManager } from "../managers";
+import { Graphics } from "../core/Graphics";
+import { ScreenSprite } from "../core/ScreenSprite";
+import { Stage } from "../core/Stage";
+import { Utils } from "../core/Utils";
+import { WindowLayer } from "../core/WindowLayer";
+import { AudioManager } from "../managers/AudioManager";
+import { ImageManager } from "../managers/ImageManager";
+import { SceneManager } from "../managers/SceneManager";
 
 declare const console: any;
 

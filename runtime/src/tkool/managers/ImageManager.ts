@@ -1,4 +1,4 @@
-import { Bitmap } from "../core/";
+import { Bitmap } from "../core/Bitmap";
 import { ImageCache } from "../core/ImageCache";
 import { RequestQueue } from "../core/RequestQueue";
 

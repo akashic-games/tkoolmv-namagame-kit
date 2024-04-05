@@ -1,5 +1,8 @@
-import { Graphics, Sprite, Bitmap, Utils } from "../core";
-import { $gameTimer } from "../managers/DataManager";
+import { Bitmap } from "../core/Bitmap";
+import { Graphics } from "../core/Graphics";
+import { Sprite } from "../core/Sprite";
+import { Utils } from "../core/Utils";
+import { $gameTimer } from "../managers/globals";
 
 export class Sprite_Timer extends Sprite {
 	_seconds: number;

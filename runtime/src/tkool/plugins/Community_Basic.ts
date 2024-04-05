@@ -1,4 +1,4 @@
-import { PluginManager, SceneManager } from "../managers";
+import { PluginManager, SceneManager } from "../index";
 
 /* :
  * @plugindesc Plugin used to set basic parameters.

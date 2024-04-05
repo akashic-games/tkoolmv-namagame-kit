@@ -1,7 +1,7 @@
-import { Graphics } from "../core";
-import { SoundManager } from "../managers";
-import { $gameParty } from "../managers/DataManager";
-import type { Game_Battler } from "../objects";
+import { Graphics } from "../core/Graphics";
+import { $gameParty } from "../managers/globals";
+import { SoundManager } from "../managers/SoundManager";
+import type { Game_Battler } from "../objects/GameBattler";
 import { Window_ItemCategory } from "../windows/WindowItemCategory";
 import { Window_ItemList } from "../windows/WindowItemList";
 import { Scene_ItemBase } from "./SceneItemBase";

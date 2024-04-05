@@ -1,5 +1,6 @@
-import { Utils, Graphics } from "../core";
 import { Container } from "../PIXI";
+import { Graphics } from "./Graphics";
+import { Utils } from "./Utils";
 
 export class ScreenSprite extends Container {
 	private _red: number;
