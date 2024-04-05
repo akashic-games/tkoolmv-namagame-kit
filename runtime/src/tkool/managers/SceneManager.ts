@@ -25,7 +25,6 @@ function assignAsset(targetScene: g.Scene) {
 		if (anAsset) {
 			(DM as any)[pair.name] = JSON.parse((anAsset as g.TextAsset).data);
 			DataManager.onLoad((DM as any)[pair.name]);
-			console.log(pair.src + " loaded");
 		}
 		return !anAsset;
 	});
@@ -39,10 +38,8 @@ function createLoadingLocalScene(): g.Scene {
 		seethrough: true
 	});
 	scene.onLoad.add(() => {
-		console.log("_____loadingLocalScene START_____");
 		scene.onUpdate.add(() => {
 			if (ImageManager.isReady()) {
-				console.log("_____loadingLocalScene END_____");
 				g.game.popScene();
 			}
 		});
@@ -214,14 +211,12 @@ export class SceneManager {
 	}
 
 	static checkWebGL() {
-		console.log("checkWebGL not implemented yet");
 		// if (!Graphics.hasWebGL()) {
 		// 	throw new Error("Your browser does not support WebGL.");
 		// }
 	}
 
 	static checkFileAccess() {
-		console.log("checkFileAccess not implemented yet");
 		// if (!Utils.canReadGameFiles()) {
 		// 	throw new Error("Your browser does not allow to read local files.");
 		// }
@@ -232,7 +227,6 @@ export class SceneManager {
 		// if (!WebAudio.initialize(noAudio) && !noAudio) {
 		// 	throw new Error("Your browser does not support Web Audio API.");
 		// }
-		console.log("Scenemanager#initAudio not implemented");
 	}
 
 	static initInput() {
@@ -302,7 +296,7 @@ export class SceneManager {
 		}
 	}
 
-	static onKeyDown(event: any) {
+	static onKeyDown(_event: any) {
 		// if (!event.ctrlKey && !event.altKey) {
 		// 	switch (event.keyCode) {
 		// 		case 116:   // F5
@@ -317,7 +311,6 @@ export class SceneManager {
 		// 			break;
 		// 	}
 		// }
-		console.log("onKeyDown: " + JSON.stringify(event));
 	}
 
 	static catchException(e: any) {
@@ -413,8 +406,6 @@ export class SceneManager {
 		const mvScene = this._scene;
 		const akashicScene = this._scene.scene;
 		akashicScene.onLoad.addOnce(() => {
-			console.log("scene loaded");
-
 			// SceneManager に利用可能になったことを伝える
 			mvScene.thisSceneLoaded = true;
 
