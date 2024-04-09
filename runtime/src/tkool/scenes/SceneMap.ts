@@ -9,8 +9,6 @@ import { Scene_Gameover } from "./SceneGameOver";
 import { Scene_Menu } from "./SceneMenu";
 import { Scene_Title } from "./SceneTitle";
 
-declare const console: any;
-
 // TODO: 以下のでっち上げをなんとかする。
 // declare const Scene_Load: any;
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -57,9 +55,6 @@ export class Scene_Map extends Scene_Base {
 			// this.onMapLoaded();
 			// this._mapLoaded = true;
 		}
-		const b = this._mapLoaded && super.isReady();
-
-		console.log("SceneMap#isReady(): " + b);
 
 		return this._mapLoaded && super.isReady();
 	}

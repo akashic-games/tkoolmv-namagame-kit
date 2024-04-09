@@ -1,11 +1,8 @@
 import { AudioManager } from "../managers";
 import { $dataSystem } from "../managers/DataManager";
 
-declare const console: any;
-
 export class SoundManager {
 	static preloadImportantSounds() {
-		console.log("SoundManager.preloadImportantSounds");
 		this.loadSystemSound(0);
 		this.loadSystemSound(1);
 		this.loadSystemSound(2);

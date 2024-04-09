@@ -188,7 +188,7 @@ export class Graphics {
 			// }
 			// this._errorPrinter.appendChild(button);
 			this._loadingCount = -Infinity;
-			console.log("failed to load: " + url);
+			console.error("failed to load: " + url);
 		}
 	}
 
@@ -207,7 +207,7 @@ export class Graphics {
 		this._applyCanvasFilter();
 		this._clearUpperCanvas();
 
-		console.log("error: " + name + ", " + message);
+		console.error("error: " + name + ", " + message);
 	}
 
 	static showFps() {
@@ -234,7 +234,7 @@ export class Graphics {
 		this._createFontLoader(name);
 	}
 
-	static isFontLoaded(name: string) {
+	static isFontLoaded(_name: string) {
 		// if (Graphics._cssFontLoading) {
 		// 	if(Graphics._fontLoaded){
 		// 		return Graphics._fontLoaded.check('10px "'+name+'"');
@@ -255,8 +255,6 @@ export class Graphics {
 		// 	return width1 !== width2;
 		// }
 
-		console.log("Graphics#isFontLoaded(" + name + ") returns true");
-
 		return true;
 	}
 
@@ -265,7 +263,7 @@ export class Graphics {
 		this._playVideo(src);
 	}
 
-	static _playVideo(src: any) {
+	static _playVideo(_src: any) {
 		// this._video.src = src;
 		// this._video.onloadeddata = this._onVideoLoad.bind(this);
 		// this._video.onerror = this._videoLoader;
@@ -274,7 +272,6 @@ export class Graphics {
 		// this._videoLoading = true;
 
 		this._videoLoading = false;
-		console.log("Graphics#_playVide() is not implemented, src = " + src);
 	}
 
 	static isVideoPlaying() {
@@ -457,7 +454,6 @@ export class Graphics {
 		// 		elements[i].style.zIndex = 0;
 		// 	}
 		// }
-		console.log("Graphics#_modifyExistingElements not implemented");
 	}
 
 	/**
@@ -470,7 +466,6 @@ export class Graphics {
 		// this._errorPrinter.id = 'ErrorPrinter';
 		// this._updateErrorPrinter();
 		// document.body.appendChild(this._errorPrinter);
-		console.log("Graphics#_createErrorPrinter not implemented");
 	}
 
 	/**
@@ -486,7 +481,6 @@ export class Graphics {
 		// this._errorPrinter.style.fontSize = '20px';
 		// this._errorPrinter.style.zIndex = 99;
 		// this._centerElement(this._errorPrinter);
-		console.log("Graphics#_updateErrorPrinter not implemented");
 	}
 
 	private static _createCanvas() {
@@ -501,7 +495,6 @@ export class Graphics {
 		// this._canvas.height = this._height;
 		// this._canvas.style.zIndex = 1;
 		// this._centerElement(this._canvas);
-		console.log("Graphics#_updateCanvas not implemented");
 	}
 
 	private static _createVideo() {
@@ -513,7 +506,6 @@ export class Graphics {
 		// this._updateVideo();
 		// makeVideoPlayableInline(this._video);
 		// document.body.appendChild(this._video);
-		console.log("Graphics#_createVideo not implemented");
 	}
 
 	/**
@@ -564,8 +556,6 @@ export class Graphics {
 		// 	context.drawImage(this._loadingImage, dx, dy);
 		// 	context.restore();
 		// }
-
-		console.log("Graphics#_paintUpperCanvas not implemented");
 	}
 
 	private static _createRenderer() {

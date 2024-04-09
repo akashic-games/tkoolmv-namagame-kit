@@ -96,7 +96,7 @@ export class Sprite_Enemy extends Sprite_Battler {
 		// 	this._stateIconSprite.y = 20 - this.y;
 		// }
 		this._stateIconSprite.x = this.width / 2 - Sprite_StateIcon._iconWidth / 2;
-		this._stateIconSprite.y = - 1 * Sprite_StateIcon._iconHeight / 2;
+		this._stateIconSprite.y = (-1 * Sprite_StateIcon._iconHeight) / 2;
 	}
 
 	initVisibility() {
