@@ -26,6 +26,7 @@ function assignAsset(targetScene: g.Scene) {
 		// DataManager.onLoad(window[pair.name]);
 		const anAsset = targetScene.assets[Utils.flatten(pair.src)];
 		if (anAsset) {
+			// TODO: グローバル変数に直接代入するのではなく、setter経由で値を渡すように
 			(GL as any)[pair.name] = JSON.parse((anAsset as g.TextAsset).data);
 			DataManager.onLoad((GL as any)[pair.name]);
 			console.log(pair.src + " loaded");

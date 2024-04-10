@@ -12,6 +12,7 @@ import type { Game_Troop } from "../objects/GameTroop";
 import type { Game_Variables } from "../objects/GameVariables";
 
 export function createGlobals() {
+	// TODO: エラー箇所の特定が分かりづらくなるので if 文は不要。また $data~ については setter で直接値を代入するため、ここでの代入は不要
 	if (!!$gameActorsFactory) $gameActors = $gameActorsFactory();
 	if (!!$dataActorsFactory) $dataActors = $dataActorsFactory();
 	if (!!$dataClassesFactory) $dataClasses = $dataClassesFactory();
@@ -42,6 +43,7 @@ export function createGlobals() {
 	if (!!$gamePlayerFactory) $gamePlayer = $gamePlayerFactory();
 }
 
+// TODO: $data~ は静的な値なので Factory とその setter は不要。代わりに $data~ に直接代入する setter が必要
 export let $dataActors: any = null;
 let $dataActorsFactory: () => any;
 export function set$dataActorsFactory(func: () => any) {
