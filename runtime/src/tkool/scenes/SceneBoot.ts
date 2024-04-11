@@ -4,13 +4,10 @@ import { $dataSystem } from "../managers/DataManager";
 import { Scene_Base } from "./SceneBase";
 import { Scene_Title } from "./SceneTitle";
 
-declare const console: any;
-
 export class Scene_Boot extends Scene_Base {
 	private _startDate: number;
 
 	static loadSystemImages() {
-		console.log("Scene_Boot.loadSystemImages");
 		ImageManager.reserveSystem("IconSet");
 		ImageManager.reserveSystem("Balloon");
 		ImageManager.reserveSystem("Shadow1");
@@ -31,13 +28,11 @@ export class Scene_Boot extends Scene_Base {
 	}
 
 	initialize() {
-		console.log("Scene_Boot.prototype.initialize");
 		this._startDate = Date.now();
 		super.initialize();
 	}
 
 	create() {
-		console.log("Scene_Boot.prototype.create");
 		Scene_Base.prototype.create.call(this);
 		DataManager.loadDatabase();
 		// ConfigManager.load();
@@ -49,12 +44,10 @@ export class Scene_Boot extends Scene_Base {
 	}
 
 	loadSystemWindowImage() {
-		console.log("Scene_Boot.prototype.loadSystemWindowImage");
 		ImageManager.reserveSystem("Window");
 	}
 
 	isReady() {
-		console.log("Scene_Boot.prototype.isReady");
 		if (Scene_Base.prototype.isReady.call(this)) {
 			return DataManager.isDatabaseLoaded() && this.isGameFontLoaded();
 		} else {
@@ -63,7 +56,6 @@ export class Scene_Boot extends Scene_Base {
 	}
 
 	isGameFontLoaded() {
-		console.log("Scene_Boot.prototype.isGameFontLoaded");
 		if (Graphics.isFontLoaded("GameFont")) {
 			return true;
 		} else if (!Graphics.canUseCssFontLoading()) {
@@ -75,7 +67,6 @@ export class Scene_Boot extends Scene_Base {
 	}
 
 	start() {
-		console.log("Scene_Boot.prototype.start");
 		Scene_Base.prototype.start.call(this);
 		SoundManager.preloadImportantSounds();
 		if (DataManager.isBattleTest() && false) {
@@ -89,13 +80,11 @@ export class Scene_Boot extends Scene_Base {
 			DataManager.setupNewGame();
 			SceneManager.goto(Scene_Title);
 			// Window_TitleCommand.initCommandPosition();
-			console.log("Window_TitleCommand.initCommandPosition not implemented");
 		}
 		this.updateDocumentTitle();
 	}
 
 	updateDocumentTitle() {
-		console.log("Scene_Boot.prototype.updateDocumentTitle");
 		// document.title = $dataSystem.gameTitle;
 	}
 

@@ -3,8 +3,6 @@ import type { Bitmap } from "./Bitmap";
 import { Rectangle } from "./Rectangle";
 import { Utils } from "./Utils";
 
-declare const console: any;
-
 // export interface SpriteParameterObject extends PIXI.ContainerParameterObject {
 // 	bitmap?: Bitmap;
 // }
@@ -72,6 +70,7 @@ export class Sprite extends PIXI.Container {
 
 	// NOTE: 派生クラスの initialize() の引数がとても自由なのでこのようにする
 	initialize(...args: any[]): void {
+		super.initialize(args);
 		const bitmap = args[0];
 		// var texture = new PIXI.Texture(new PIXI.BaseTexture());
 		// PIXI.Sprite.call(this, texture);
@@ -266,7 +265,6 @@ export class Sprite extends PIXI.Container {
 		} else if (this._bitmap) {
 			this.texture.frame = /* PIXI.Rectangle.emptyRectangle*/ Rectangle.emptyRectangle;
 		} else {
-			console.log("❗ " + JSON.stringify(this.texture));
 			this.texture.baseTexture.width = Math.max(this.texture.baseTexture.width, this._frame.x + this._frame.width);
 			this.texture.baseTexture.height = Math.max(this.texture.baseTexture.height, this._frame.y + this._frame.height);
 			this.texture.frame = this._frame;

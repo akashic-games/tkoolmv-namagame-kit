@@ -676,7 +676,7 @@ export class Game_Action {
 			if (isNaN(value)) value = 0;
 			return value;
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			return 0;
 		}
 	}
