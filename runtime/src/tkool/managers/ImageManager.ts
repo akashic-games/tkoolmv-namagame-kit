@@ -2,8 +2,6 @@ import { Bitmap } from "../core/Bitmap";
 import { ImageCache } from "../core/ImageCache";
 import { RequestQueue } from "../core/RequestQueue";
 
-declare const console: any;
-
 export class ImageManager {
 	static cache: any; // = new CacheMap(ImageManager);
 
@@ -91,7 +89,6 @@ export class ImageManager {
 		if (!bitmap) {
 			bitmap = Bitmap.load(decodeURIComponent(path));
 			bitmap.addLoadListener(() => {
-				console.log("Bitmap loaded: " + path, "age: " + g.game.age);
 				bitmap.rotateHue(hue);
 			});
 			this._imageCache.add(key, bitmap);
@@ -183,7 +180,6 @@ export class ImageManager {
 	}
 
 	static reserveBitmap(folder: string, filename: string, hue?: number, smooth?: boolean, reservationId?: number) {
-		console.log("reserved: " + folder + "/" + filename);
 		if (filename) {
 			const path = folder + encodeURIComponent(filename) + ".png";
 			const bitmap = this.reserveNormalBitmap(path, hue || 0, reservationId || this._defaultReservationId);

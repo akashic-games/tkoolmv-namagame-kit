@@ -319,7 +319,6 @@ export class Bitmap {
 		if (this._paintOpacity !== value) {
 			this._paintOpacity = value;
 			// this._context.globalAlpha = this._paintOpacity / MAX_PAINT_OPACITY;
-			console.log("paintOpacity value " + value + " dropped");
 		}
 	}
 
@@ -1119,7 +1118,7 @@ export class Bitmap {
 		const aid = g.game._assetManager.resolvePatternsToAssetIds([`/assets/${url}`])[0];
 		// ここでハンドリングしないと requestAssets メソッドの呼び出し時に例外が飛ぶ、且つ例外が飛ぶとオリジナルのコードの addEventListener("error", ...) にあたる処理と異なる動作になってしまう
 		if (aid === undefined) {
-			console.log(`Bitmap#_requestImage(): ${url} is not found`);
+			console.error(`Bitmap#_requestImage(): ${url} is not found`);
 			this._onError();
 			return;
 		}
@@ -1255,8 +1254,6 @@ export class Bitmap {
 		// this._image.removeEventListener("load", this._loadListener);
 		// this._image.removeEventListener("error", this._errorListener);
 		this._loadingState = "error";
-
-		console.log("Bitmap#_onError()");
 	}
 
 	private _setDirty() {

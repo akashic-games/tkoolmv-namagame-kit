@@ -10,8 +10,6 @@ import { Window_TitleCommand } from "../windows/WindowTitleCommand";
 import { Scene_Base } from "./SceneBase";
 import { Scene_Map } from "./SceneMap";
 
-declare const console: any;
-
 export class Scene_Title extends Scene_Base {
 	_backSprite1: Sprite;
 	_backSprite2: Sprite;
@@ -38,7 +36,6 @@ export class Scene_Title extends Scene_Base {
 	}
 
 	start() {
-		console.log("Scene_Title.prototype.start");
 		SceneManager.clearStack();
 		this.centerSprite(this._backSprite1);
 		this.centerSprite(this._backSprite2);
@@ -58,7 +55,6 @@ export class Scene_Title extends Scene_Base {
 	}
 
 	terminate() {
-		console.log("Scene_Title.prototype.terminate");
 		super.terminate();
 		SceneManager.snapForBackground();
 	}

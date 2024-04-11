@@ -574,6 +574,7 @@ export class Tilemap extends Container {
 	}
 
 	initialize() {
+		super.initialize();
 		this._margin = 20;
 		this._width = Graphics.width + this._margin * 2;
 		this._height = Graphics.height + this._margin * 2;

@@ -185,6 +185,10 @@ export class Container {
 	}
 
 	constructor(...args: any[]) {
+		this.initialize(...args);
+	}
+
+	initialize(..._args: any[]) {
 		this.pixiEntity = new PixiEntity({
 			scene: g.game.scene(),
 			container: this
@@ -214,12 +218,6 @@ export class Container {
 			1,
 			1
 		);
-
-		this.initialize(...args);
-	}
-
-	initialize(..._args: any[]) {
-		// nothing to do.
 	}
 
 	onChildrenChange(_index: number): void {

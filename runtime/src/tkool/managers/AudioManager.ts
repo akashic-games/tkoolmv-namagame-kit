@@ -1,7 +1,5 @@
 import { Utils } from "../core/Utils";
 
-declare const console: any;
-
 interface AudioParameters {
 	name: string;
 	pan: number;
@@ -330,7 +328,6 @@ export class AudioManager {
 		if (this.isStaticSe(se)) {
 			return;
 		}
-		console.log("AudioManager.loadStaticSe: " + se.name);
 		const buffer = {
 			name: se.name,
 			playContext: g.game.audio.create(asset)

@@ -7,8 +7,6 @@ import { AudioManager } from "../managers/AudioManager";
 import { ImageManager } from "../managers/ImageManager";
 import { SceneManager } from "../managers/SceneManager";
 
-declare const console: any;
-
 export class Scene_Base extends Stage {
 	thisSceneLoaded: boolean;
 
@@ -29,6 +27,7 @@ export class Scene_Base extends Stage {
 	}
 
 	initialize() {
+		super.initialize();
 		this._active = false;
 		this._fadeSign = 0;
 		this._fadeDuration = 0;
@@ -37,17 +36,15 @@ export class Scene_Base extends Stage {
 	}
 
 	attachReservation() {
-		console.log("Scene_Base.prototype.attachReservation");
 		ImageManager.setDefaultReservationId(this._imageReservationId);
 	}
 
 	detachReservation() {
-		console.log("Scene_Base.prototype.detachReservation");
 		ImageManager.releaseReservation(this._imageReservationId);
 	}
 
 	create() {
-		console.log("Scene_Base.prototype.create");
+		//
 	}
 
 	isActive() {
@@ -55,12 +52,10 @@ export class Scene_Base extends Stage {
 	}
 
 	isReady() {
-		console.log("Scene_Base.prototype.isReady");
 		return ImageManager.isReady();
 	}
 
 	start() {
-		console.log("Scene_Base.prototype.start");
 		this._active = true;
 	}
 
@@ -70,7 +65,6 @@ export class Scene_Base extends Stage {
 	}
 
 	stop() {
-		console.log("Scene_Base.prototype.stop");
 		this._active = false;
 	}
 
@@ -79,7 +73,7 @@ export class Scene_Base extends Stage {
 	}
 
 	terminate() {
-		console.log("Scene_Base.prototype.terminate");
+		//
 	}
 
 	createWindowLayer() {
@@ -93,7 +87,6 @@ export class Scene_Base extends Stage {
 	}
 
 	addWindow(window: any) {
-		console.log("Scene_Base.prototype.addWindow");
 		this._windowLayer.addChild(window);
 	}
 
@@ -163,7 +156,6 @@ export class Scene_Base extends Stage {
 	}
 
 	popScene() {
-		console.log("Scene_Base.prototype.popScene");
 		SceneManager.pop();
 	}
 
