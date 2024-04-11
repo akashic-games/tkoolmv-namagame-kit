@@ -18,6 +18,7 @@ export class ToneSprite extends Container {
 	}
 
 	initialize() {
+		super.initialize();
 		this.clear();
 	}
 

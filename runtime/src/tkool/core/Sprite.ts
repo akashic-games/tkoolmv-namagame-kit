@@ -70,6 +70,7 @@ export class Sprite extends PIXI.Container {
 
 	// NOTE: 派生クラスの initialize() の引数がとても自由なのでこのようにする
 	initialize(...args: any[]): void {
+		super.initialize(args);
 		const bitmap = args[0];
 		// var texture = new PIXI.Texture(new PIXI.BaseTexture());
 		// PIXI.Sprite.call(this, texture);
