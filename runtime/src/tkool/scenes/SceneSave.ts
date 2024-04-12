@@ -1,6 +1,8 @@
-import { DataManager, SoundManager, TextManager } from "../managers";
-import { $gameSystem } from "../managers/DataManager";
+import { DataManager } from "../managers/DataManager";
+import { $gameSystem } from "../managers/globals";
+import { SoundManager } from "../managers/SoundManager";
 import { StorageManager } from "../managers/StorageManager";
+import { TextManager } from "../managers/TextManager";
 import { Scene_File } from "./SceneFile";
 
 export class Scene_Save extends Scene_File {

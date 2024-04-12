@@ -1,7 +1,10 @@
-import { Window, Sprite, Bitmap } from "../core";
-import { ImageManager, TextManager } from "../managers";
-import { $gameSystem, $gameVariables, $gameActors, $gameParty } from "../managers/DataManager";
-import type { Game_Actor } from "../objects";
+import { Bitmap } from "../core/Bitmap";
+import { Sprite } from "../core/Sprite";
+import { Window } from "../core/Window";
+import { $gameSystem, $gameVariables, $gameActors, $gameParty } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import { TextManager } from "../managers/TextManager";
+import type { Game_Actor } from "../objects/GameActor";
 
 // Window.pngから色情報を取得するために毎回ImageDataを使い捨てるのが無駄なので、これらの変数で色情報をキャッシュする
 const textColorMap: { [num: number]: string } = {};

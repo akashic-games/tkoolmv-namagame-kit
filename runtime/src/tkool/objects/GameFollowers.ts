@@ -1,4 +1,4 @@
-import { $dataSystem, $gameParty, $gamePlayer } from "../managers/DataManager";
+import { $dataSystem, $gameParty, $gamePlayer } from "../managers/globals";
 import { Game_Follower } from "./GameFollower";
 
 export class Game_Followers {

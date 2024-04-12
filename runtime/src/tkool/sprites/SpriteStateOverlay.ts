@@ -1,5 +1,5 @@
-import { ImageManager } from "../managers";
-import type { Game_Battler } from "../objects";
+import { ImageManager } from "../managers/ImageManager";
+import type { Game_Battler } from "../objects/GameBattler";
 import { Sprite_Base } from "./SpriteBase";
 
 export class Sprite_StateOverlay extends Sprite_Base {

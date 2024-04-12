@@ -1,6 +1,6 @@
 import { Graphics } from "../core/Graphics";
-import { ImageManager } from "../managers";
-import { $gameMap } from "../managers/DataManager";
+import { $gameMap } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
 
 export class Game_CharacterBase {
 	private _x: number;

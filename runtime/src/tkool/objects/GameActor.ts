@@ -1,5 +1,5 @@
-import { Utils } from "../core";
-import { DataManager, TextManager, SoundManager } from "../managers";
+import { Utils } from "../core/Utils";
+import { DataManager } from "../managers/DataManager";
 import {
 	$dataActors,
 	$gameParty,
@@ -14,7 +14,9 @@ import {
 	$gameMessage,
 	$gameSystem,
 	$gameScreen
-} from "../managers/DataManager";
+} from "../managers/globals";
+import { SoundManager } from "../managers/SoundManager";
+import { TextManager } from "../managers/TextManager";
 import { Game_Action } from "./GameAction";
 import { Game_Battler } from "./GameBattler";
 import { Game_Item } from "./GameItem";

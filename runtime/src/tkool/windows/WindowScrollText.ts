@@ -1,5 +1,6 @@
-import { Graphics, TouchInput } from "../core";
-import { $gameMessage } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { TouchInput } from "../core/TouchInput";
+import { $gameMessage } from "../managers/globals";
 import type { TextState } from "./WindowBase";
 import { Window_Base } from "./WindowBase";
 

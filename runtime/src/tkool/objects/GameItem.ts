@@ -1,5 +1,5 @@
-import { DataManager } from "../managers";
-import { $dataSkills, $dataItems, $dataWeapons, $dataArmors } from "../managers/DataManager";
+import { DataManager } from "../managers/DataManager";
+import { $dataSkills, $dataItems, $dataWeapons, $dataArmors } from "../managers/globals";
 
 export class Game_Item {
 	// NOTE: 以下はWindow_BattleLog#displayAction から、アイテムの種類に応じて参照されるプロパティなのだが、どこで値を設定しているのだろう？

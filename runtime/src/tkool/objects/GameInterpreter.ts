@@ -1,4 +1,4 @@
-import type { Bitmap } from "../core";
+import type { Bitmap } from "../core/Bitmap";
 import { Graphics as Graphics_ } from "../core/Graphics";
 import { JsonEx as JsonEx_ } from "../core/JsonEx";
 import { Tilemap as Tilemap_ } from "../core/Tilemap";
@@ -6,6 +6,7 @@ import { TouchInput as TouchInput_ } from "../core/TouchInput";
 import { Utils as Utils_ } from "../core/Utils";
 import { AudioManager as AudioManager_ } from "../managers/AudioManager";
 import { BattleManager as BattleManager_ } from "../managers/BattleManager";
+import { DataManager as DataManager_ } from "../managers/DataManager";
 import {
 	$gameSystem as $gameSystem_,
 	$gameSwitches as $gameSwitches_,
@@ -34,17 +35,18 @@ import {
 	$dataStates as $dataStates_,
 	$dataSystem as $dataSystem_,
 	$dataMapInfos as $dataMapInfos_,
-	$dataMap as $dataMap_,
-	DataManager as DataManager_
-} from "../managers/DataManager";
+	$dataMap as $dataMap_
+} from "../managers/globals";
 import { ImageManager as ImageManager_ } from "../managers/ImageManager";
 import { SceneManager as SceneManager_ } from "../managers/SceneManager";
 import { SoundManager as SoundManager_ } from "../managers/SoundManager";
 import { TextManager as TextManager_ } from "../managers/TextManager";
-import { Scene_Gameover, Scene_Battle, Scene_Title } from "../scenes";
+import { Scene_Battle } from "../scenes/SceneBattle";
+import { Scene_Gameover } from "../scenes/SceneGameOver";
 import { Scene_Menu } from "../scenes/SceneMenu";
 import { Scene_Shop } from "../scenes/SceneShop";
-import { Window_MenuCommand } from "../windows";
+import { Scene_Title } from "../scenes/SceneTitle";
+import { Window_MenuCommand } from "../windows/WindowMenuCommand";
 import { Game_Character } from "./GameCharacter";
 
 // これらの変数(GameObject)はツクールのスクリプトで利用される可能性があるため、exportせずクラスの外で変数定義
@@ -94,11 +96,8 @@ let TextManager: typeof TextManager_;
 /* eslint-enable @typescript-eslint/naming-convention */
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
-// 未定義の全GameObjectに値を代入。ただし定義済みの場合は何もしない
-const setGameObjects = () => {
-	if ($gameVariables) {
-		return;
-	}
+// 未定義の全GameObjectに値を代入
+function setGameObjects() {
 	$gameVariables = $gameVariables_;
 	$gameSystem = $gameSystem_;
 	$gameSwitches = $gameSwitches_;
@@ -139,7 +138,12 @@ const setGameObjects = () => {
 	SceneManager = SceneManager_;
 	SoundManager = SoundManager_;
 	TextManager = TextManager_;
-};
+}
+
+// スクリプト(eval)で利用するグローバル変数の初期化を可能にする
+if (!DataManager_._onReset.contains(setGameObjects)) {
+	DataManager_._onReset.add(setGameObjects);
+}
 
 export class Game_Interpreter {
 	private _depth: number;
@@ -829,7 +833,6 @@ export class Game_Interpreter {
 				result = false; // TODO: impl
 				break;
 			case 12: // Script
-				setGameObjects();
 				// eslint-disable-next-line no-eval
 				result = !!eval(this._params[1]);
 				break;
@@ -967,7 +970,6 @@ export class Game_Interpreter {
 				value = this.gameDataOperand(this._params[4], this._params[5], this._params[6]);
 				break;
 			case 4: // Script
-				setGameObjects();
 				// eslint-disable-next-line no-eval
 				value = eval(this._params[4]);
 				break;
@@ -2076,7 +2078,6 @@ export class Game_Interpreter {
 			script += this.currentCommand().parameters[0] + "\n";
 		}
 
-		setGameObjects();
 		// eslint-disable-next-line no-eval
 		eval(script);
 		return true;

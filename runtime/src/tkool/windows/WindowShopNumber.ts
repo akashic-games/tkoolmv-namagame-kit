@@ -1,7 +1,9 @@
-import { TouchInput } from "../core";
-import { ImageManager, SoundManager, TextManager } from "../managers";
-import type { Game_Item } from "../objects";
-import { Sprite_Button } from "../sprites";
+import { TouchInput } from "../core/TouchInput";
+import { ImageManager } from "../managers/ImageManager";
+import { SoundManager } from "../managers/SoundManager";
+import { TextManager } from "../managers/TextManager";
+import type { Game_Item } from "../objects/GameItem";
+import { Sprite_Button } from "../sprites/SpriteButton";
 import { Window_Selectable } from "./WindowSelectable";
 
 export class Window_ShopNumber extends Window_Selectable {

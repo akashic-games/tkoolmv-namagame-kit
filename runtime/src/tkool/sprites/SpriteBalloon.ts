@@ -1,4 +1,4 @@
-import { ImageManager } from "../managers";
+import { ImageManager } from "../managers/ImageManager";
 import { Sprite_Base } from "./SpriteBase";
 
 export class Sprite_Balloon extends Sprite_Base {

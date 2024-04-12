@@ -1,6 +1,9 @@
-import { Sprite, TouchInput } from "../core";
-import { AudioManager, ImageManager, SceneManager } from "../managers";
-import { $dataSystem } from "../managers/DataManager";
+import { Sprite } from "../core/Sprite";
+import { TouchInput } from "../core/TouchInput";
+import { AudioManager } from "../managers/AudioManager";
+import { $dataSystem } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import { SceneManager } from "../managers/SceneManager";
 import { Scene_Base } from "./SceneBase";
 import { Scene_Title } from "./SceneTitle";
 

@@ -1,4 +1,4 @@
-import { Utils } from "../core";
+import { Utils } from "../core/Utils";
 
 interface AudioParameters {
 	name: string;

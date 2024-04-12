@@ -1,4 +1,6 @@
-import { Sprite, Rectangle, TouchInput } from "../core";
+import { Rectangle } from "../core/Rectangle";
+import { Sprite } from "../core/Sprite";
+import { TouchInput } from "../core/TouchInput";
 
 export class Sprite_Button extends Sprite {
 	private _touching: boolean;

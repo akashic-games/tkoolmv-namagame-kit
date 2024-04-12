@@ -1,8 +1,16 @@
-import { AudioManager, PluginManager } from "../managers";
-import { $gameTimer, $gameVariables } from "../managers/DataManager";
-import { Game_Timer, Game_Variables, Game_Interpreter } from "../objects";
-import { Scene_Title, Scene_Map } from "../scenes";
-import { Window_Base, Window_MenuCommand } from "../windows";
+import {
+	Window_Base,
+	Scene_Title,
+	Game_Variables,
+	Game_Timer,
+	Game_Interpreter,
+	Scene_Map,
+	Window_MenuCommand,
+	PluginManager,
+	AudioManager,
+	$gameVariables,
+	$gameTimer
+} from "../index";
 
 // =============================================================================
 // AkashicRankingMode.js

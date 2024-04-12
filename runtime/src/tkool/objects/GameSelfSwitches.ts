@@ -1,4 +1,4 @@
-import { $gameMap } from "../managers/DataManager";
+import { $gameMap, set$gameSelfSwitchesFactory } from "../managers/globals";
 
 export class Game_SelfSwitches {
 	private _data: { [key: string]: any };
@@ -32,3 +32,7 @@ export class Game_SelfSwitches {
 		$gameMap.requestRefresh();
 	}
 }
+
+set$gameSelfSwitchesFactory(() => {
+	return new Game_SelfSwitches();
+});

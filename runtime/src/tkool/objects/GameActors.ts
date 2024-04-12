@@ -1,4 +1,4 @@
-import { $dataActors } from "../managers/DataManager";
+import { $dataActors, set$gameActorsFactory } from "../managers/globals";
 import { Game_Actor } from "./GameActor";
 
 export class Game_Actors {
@@ -22,3 +22,7 @@ export class Game_Actors {
 		return null;
 	}
 }
+
+set$gameActorsFactory(() => {
+	return new Game_Actors();
+});

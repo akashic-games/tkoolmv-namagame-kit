@@ -1,5 +1,5 @@
-import { TextManager } from "../managers";
-import type { Game_Actor } from "../objects";
+import { TextManager } from "../managers/TextManager";
+import type { Game_Actor } from "../objects/GameActor";
 import { Window_Base } from "./WindowBase";
 
 export class Window_EquipStatus extends Window_Base {

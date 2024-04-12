@@ -1,6 +1,6 @@
-import { Graphics } from "../core";
-import { $gameTroop } from "../managers/DataManager";
-import type { Game_Battler } from "../objects";
+import { Graphics } from "../core/Graphics";
+import { $gameTroop } from "../managers/globals";
+import type { Game_Battler } from "../objects/GameBattler";
 import { Window_Selectable } from "./WindowSelectable";
 
 export class Window_BattleEnemy extends Window_Selectable {

@@ -73,23 +73,34 @@
 // [GitHub] : https://github.com/triacontane/
 // =============================================================================
 
-import { Graphics, TouchInput } from "../core";
-import { BattleManager, PluginManager, SceneManager } from "../managers";
 import {
+	Graphics,
+	TouchInput,
+	BattleManager,
+	PluginManager,
+	SceneManager,
+	Game_Interpreter,
+	Game_Map,
+	Game_Screen,
+	Game_System,
+	Game_Temp,
+	Game_Troop,
+	Scene_Base,
+	Scene_Battle,
+	Scene_Map,
+	Sprite_Picture,
+	Spriteset_Base,
+	Window_Base,
+	$gameScreen,
 	$dataCommonEvents,
 	$dataSystem,
+	$gameSwitches,
 	$gameMap,
 	$gameParty,
-	$gameScreen,
-	$gameSwitches,
+	$gameVariables,
 	$gameTemp,
-	$gameTroop,
-	$gameVariables
-} from "../managers/DataManager";
-import { Game_Interpreter, Game_Map, Game_Screen, Game_System, Game_Temp, Game_Troop } from "../objects";
-import { Scene_Base, Scene_Battle, Scene_Map } from "../scenes";
-import { Sprite_Picture, Spriteset_Base } from "../sprites";
-import { Window_Base } from "../windows";
+	$gameTroop
+} from "../../tkool/index";
 
 /* :ja
  * @plugindesc ピクチャのボタン化プラグイン

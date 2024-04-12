@@ -1,5 +1,7 @@
-import { Utils, Rectangle, TouchInput } from "../core";
-import { SoundManager } from "../managers";
+import { Rectangle } from "../core/Rectangle";
+import { TouchInput } from "../core/TouchInput";
+import { Utils } from "../core/Utils";
+import { SoundManager } from "../managers/SoundManager";
 import { Window_Base } from "./WindowBase";
 import type { Window_Help } from "./WindowHelp";
 

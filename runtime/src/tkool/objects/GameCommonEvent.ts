@@ -1,4 +1,4 @@
-import { $dataCommonEvents, $gameSwitches } from "../managers/DataManager";
+import { $dataCommonEvents, $gameSwitches } from "../managers/globals";
 import { Game_Interpreter } from "./GameInterpreter";
 
 export class Game_CommonEvent {

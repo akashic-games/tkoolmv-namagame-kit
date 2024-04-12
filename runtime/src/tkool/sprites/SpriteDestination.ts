@@ -1,5 +1,7 @@
-import { Graphics, Sprite, Bitmap } from "../core";
-import { $gameTemp, $gameMap } from "../managers/DataManager";
+import { Bitmap } from "../core/Bitmap";
+import { Graphics } from "../core/Graphics";
+import { Sprite } from "../core/Sprite";
+import { $gameTemp, $gameMap } from "../managers/globals";
 
 export class Sprite_Destination extends Sprite {
 	private _frameCount: number;

@@ -1,6 +1,17 @@
-import { Graphics, Utils } from "../core";
-import { AudioManager, ImageManager } from "../managers";
-import { $gameSystem, $gameSwitches, $dataMap, $gamePlayer, $dataCommonEvents, $testEvent, $dataTilesets } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { Utils } from "../core/Utils";
+import { AudioManager } from "../managers/AudioManager";
+import {
+	$gameSystem,
+	$gameSwitches,
+	$dataMap,
+	$gamePlayer,
+	$dataCommonEvents,
+	$testEvent,
+	$dataTilesets,
+	set$gameMapFactory
+} from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
 import { Game_CommonEvent } from "./GameCommonEvent";
 import { Game_Event } from "./GameEvent";
 import { Game_Interpreter } from "./GameInterpreter";
@@ -822,3 +833,7 @@ export class Game_Map {
 		});
 	}
 }
+
+set$gameMapFactory(() => {
+	return new Game_Map();
+});

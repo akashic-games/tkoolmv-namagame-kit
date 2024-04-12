@@ -1,8 +1,11 @@
-import { Graphics, TouchInput, Bitmap, Utils } from "../core/";
-import type { Scene_Base } from "../scenes";
+import { Bitmap } from "../core/Bitmap";
+import { Graphics } from "../core/Graphics";
+import { TouchInput } from "../core/TouchInput";
+import { Utils } from "../core/Utils";
+import type { Scene_Base } from "../scenes/SceneBase";
 import { AudioManager } from "./AudioManager";
 import { DataManager } from "./DataManager";
-import * as DM from "./DataManager";
+import * as GL from "./globals";
 import { ImageManager } from "./ImageManager";
 import { PluginManager } from "./PluginManager";
 
@@ -23,8 +26,9 @@ function assignAsset(targetScene: g.Scene) {
 		// DataManager.onLoad(window[pair.name]);
 		const anAsset = targetScene.assets[Utils.flatten(pair.src)];
 		if (anAsset) {
-			(DM as any)[pair.name] = JSON.parse((anAsset as g.TextAsset).data);
-			DataManager.onLoad((DM as any)[pair.name]);
+			// TODO: グローバル変数に直接代入するのではなく、setter経由で値を渡すように
+			(GL as any)[pair.name] = JSON.parse((anAsset as g.TextAsset).data);
+			DataManager.onLoad((GL as any)[pair.name]);
 		}
 		return !anAsset;
 	});

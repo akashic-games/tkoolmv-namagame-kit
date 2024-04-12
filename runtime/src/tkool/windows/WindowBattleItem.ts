@@ -1,4 +1,4 @@
-import { $gameParty } from "../managers/DataManager";
+import { $gameParty } from "../managers/globals";
 import { Window_ItemList } from "./WindowItemList";
 
 export class Window_BattleItem extends Window_ItemList {

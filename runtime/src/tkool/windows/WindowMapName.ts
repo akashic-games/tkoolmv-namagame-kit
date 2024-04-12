@@ -1,4 +1,4 @@
-import { $gameMap } from "../managers/DataManager";
+import { $gameMap } from "../managers/globals";
 import { Window_Base } from "./WindowBase";
 
 export class Window_MapName extends Window_Base {

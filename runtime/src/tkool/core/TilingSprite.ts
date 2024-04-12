@@ -1,7 +1,8 @@
-import type { Bitmap } from "../core";
-import { Sprite, Utils } from "../core";
 import type { Texture } from "../PIXI";
 import { Container, Point, Rectangle } from "../PIXI";
+import type { Bitmap } from "./Bitmap";
+import { Sprite } from "./Sprite";
+import { Utils } from "./Utils";
 
 // TilingSprite は本来以下のように派生したクラス。
 //   PIXI.Sprite <- PIXI.extras.TilingSprite <- PIXI.extras.PictureTilingSprite <- TilingSprite

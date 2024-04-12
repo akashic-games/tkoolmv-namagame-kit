@@ -1,5 +1,6 @@
-import type { Rectangle } from "../core";
-import { DataManager, TextManager } from "../managers";
+import type { Rectangle } from "../core/Rectangle";
+import { DataManager } from "../managers/DataManager";
+import { TextManager } from "../managers/TextManager";
 import { Window_Selectable } from "./WindowSelectable";
 
 export class Window_SavefileList extends Window_Selectable {

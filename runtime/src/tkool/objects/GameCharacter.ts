@@ -5,6 +5,7 @@ import { TouchInput as TouchInput_ } from "../core/TouchInput";
 import { Utils as Utils_ } from "../core/Utils";
 import { AudioManager as AudioManager_ } from "../managers/AudioManager";
 import { BattleManager as BattleManager_ } from "../managers/BattleManager";
+import { DataManager as DataManager_ } from "../managers/DataManager";
 import {
 	$gameSystem as $gameSystem_,
 	$gameSwitches as $gameSwitches_,
@@ -33,9 +34,8 @@ import {
 	$dataStates as $dataStates_,
 	$dataSystem as $dataSystem_,
 	$dataMapInfos as $dataMapInfos_,
-	$dataMap as $dataMap_,
-	DataManager as DataManager_
-} from "../managers/DataManager";
+	$dataMap as $dataMap_
+} from "../managers/globals";
 import { ImageManager as ImageManager_ } from "../managers/ImageManager";
 import { SceneManager as SceneManager_ } from "../managers/SceneManager";
 import { SoundManager as SoundManager_ } from "../managers/SoundManager";
@@ -89,11 +89,8 @@ let TextManager: typeof TextManager_;
 /* eslint-enable @typescript-eslint/naming-convention */
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
-// 未定義の全GameObjectに値を代入。ただし定義済みの場合は何もしない
-const setGameObjects = () => {
-	if ($gameVariables) {
-		return;
-	}
+// 未定義の全GameObjectに値を代入
+function setGameObjects() {
 	$gameVariables = $gameVariables_;
 	$gameSystem = $gameSystem_;
 	$gameSwitches = $gameSwitches_;
@@ -134,7 +131,12 @@ const setGameObjects = () => {
 	SceneManager = SceneManager_;
 	SoundManager = SoundManager_;
 	TextManager = TextManager_;
-};
+}
+
+// スクリプト(eval)で利用するグローバル変数の初期化を可能にする
+if (!DataManager_._onReset.contains(setGameObjects)) {
+	DataManager_._onReset.add(setGameObjects);
+}
 
 function randomInt(max: number) {
 	return Math.floor(max * g.game.vars.random.generate());
@@ -407,7 +409,6 @@ export class Game_Character extends Game_CharacterBase {
 				AudioManager_.playSe(params[0]);
 				break;
 			case gc.ROUTE_SCRIPT:
-				setGameObjects();
 				// eslint-disable-next-line no-eval
 				eval(params[0]); // TODO: evalしている!!
 				break;

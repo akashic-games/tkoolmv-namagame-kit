@@ -1,7 +1,7 @@
 import { Graphics } from "../core/Graphics";
-import { SoundManager } from "../managers";
-import { $gameParty } from "../managers/DataManager";
-import { Window_Base } from "../windows";
+import { $gameParty } from "../managers/globals";
+import { SoundManager } from "../managers/SoundManager";
+import { Window_Base } from "../windows/WindowBase";
 import { Window_Gold } from "../windows/WindowGold";
 import { Window_ItemCategory } from "../windows/WindowItemCategory";
 import { Window_ShopBuy } from "../windows/WindowShopBuy";

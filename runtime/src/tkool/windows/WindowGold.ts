@@ -1,5 +1,5 @@
-import { TextManager } from "../managers";
-import { $gameParty } from "../managers/DataManager";
+import { $gameParty } from "../managers/globals";
+import { TextManager } from "../managers/TextManager";
 import { Window_Base } from "./WindowBase";
 
 export class Window_Gold extends Window_Base {

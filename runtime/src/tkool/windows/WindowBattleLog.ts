@@ -1,8 +1,17 @@
-import { Graphics, Bitmap, Sprite, TouchInput, Utils } from "../core";
-import { DataManager, TextManager, SoundManager } from "../managers";
-import { $dataAnimations } from "../managers/DataManager";
-import type { Game_Battler, Game_Actor, Game_Action, Game_Item } from "../objects";
-import type { Spriteset_Battle } from "../sprites";
+import { Bitmap } from "../core/Bitmap";
+import { Graphics } from "../core/Graphics";
+import { Sprite } from "../core/Sprite";
+import { TouchInput } from "../core/TouchInput";
+import { Utils } from "../core/Utils";
+import { DataManager } from "../managers/DataManager";
+import { $dataAnimations } from "../managers/globals";
+import { SoundManager } from "../managers/SoundManager";
+import { TextManager } from "../managers/TextManager";
+import type { Game_Action } from "../objects/GameAction";
+import type { Game_Actor } from "../objects/GameActor";
+import type { Game_Battler } from "../objects/GameBattler";
+import type { Game_Item } from "../objects/GameItem";
+import type { Spriteset_Battle } from "../sprites/SpritesetBattle";
 import { Window_Selectable } from "./WindowSelectable";
 
 interface MethodIndexSignature {

@@ -1,7 +1,7 @@
-import type { Rectangle } from "../core";
-import { Graphics } from "../core";
-import { $gameParty, $dataSystem } from "../managers/DataManager";
-import type { Game_Actor } from "../objects";
+import { Graphics } from "../core/Graphics";
+import type { Rectangle } from "../core/Rectangle";
+import { $gameParty, $dataSystem } from "../managers/globals";
+import type { Game_Actor } from "../objects/GameActor";
 import { Window_Selectable } from "./WindowSelectable";
 
 export class Window_BattleStatus extends Window_Selectable {

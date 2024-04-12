@@ -1,4 +1,4 @@
-import { Utils } from "../core";
+import { Utils } from "../core/Utils";
 import {
 	$gameMap,
 	$gameSwitches,
@@ -9,7 +9,7 @@ import {
 	$gameVariables,
 	$gameSelfSwitches,
 	$dataItems
-} from "../managers/DataManager";
+} from "../managers/globals";
 import { Game_Character } from "./GameCharacter";
 import { Game_Interpreter } from "./GameInterpreter";
 

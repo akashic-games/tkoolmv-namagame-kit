@@ -1,6 +1,15 @@
-import { Utils } from "../core";
-import { BattleManager } from "../managers";
-import { $dataTroops, $dataEnemies, $gameSystem, $gameTroop, $gameActors, $gameSwitches, $gameParty } from "../managers/DataManager";
+import { Utils } from "../core/Utils";
+import { BattleManager } from "../managers/BattleManager";
+import {
+	$dataTroops,
+	$dataEnemies,
+	$gameSystem,
+	$gameTroop,
+	$gameActors,
+	$gameSwitches,
+	$gameParty,
+	set$gameTroopFactory
+} from "../managers/globals";
 import { Game_Enemy } from "./GameEnemy";
 import { Game_Interpreter } from "./GameInterpreter";
 import { Game_Unit } from "./GameUnit";
@@ -265,3 +274,7 @@ export class Game_Troop extends Game_Unit {
 		}, []);
 	}
 }
+
+set$gameTroopFactory(() => {
+	return new Game_Troop();
+});

@@ -1,6 +1,16 @@
-import { Utils } from "../core";
-import { DataManager, TextManager } from "../managers";
-import { $gameActors, $dataItems, $dataWeapons, $dataArmors, $dataSystem, $gamePlayer, $gameMap } from "../managers/DataManager";
+import { Utils } from "../core/Utils";
+import { DataManager } from "../managers/DataManager";
+import {
+	$gameActors,
+	$dataItems,
+	$dataWeapons,
+	$dataArmors,
+	$dataSystem,
+	$gamePlayer,
+	$gameMap,
+	set$gamePartyFactory
+} from "../managers/globals";
+import { TextManager } from "../managers/TextManager";
 import type { Game_Actor } from "./GameActor";
 import { Game_Item } from "./GameItem";
 import { Game_Unit } from "./GameUnit";
@@ -474,3 +484,7 @@ export class Game_Party extends Game_Unit {
 		});
 	}
 }
+
+set$gamePartyFactory(() => {
+	return new Game_Party();
+});

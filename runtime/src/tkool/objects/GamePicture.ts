@@ -1,4 +1,4 @@
-import { Utils } from "../core";
+import { Utils } from "../core/Utils";
 
 export class Game_Picture {
 	private _name: string;

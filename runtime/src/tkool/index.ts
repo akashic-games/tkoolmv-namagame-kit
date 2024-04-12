@@ -1,4 +1,6 @@
 export { DataManager } from "./managers/DataManager";
+export * from "./managers/globals";
+
 export { Bitmap } from "./core/Bitmap";
 export type { CacheEntry } from "./core/CacheEntry";
 export { Graphics } from "./core/Graphics";

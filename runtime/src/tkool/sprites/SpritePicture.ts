@@ -1,6 +1,6 @@
-import { Sprite } from "../core";
-import { ImageManager } from "../managers";
-import { $gameScreen } from "../managers/DataManager";
+import { Sprite } from "../core/Sprite";
+import { $gameScreen } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
 
 export class Sprite_Picture extends Sprite {
 	_pictureId: number;

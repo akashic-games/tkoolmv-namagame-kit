@@ -1,3 +1,5 @@
+import { set$gameMessageFactory } from "../managers/globals";
+
 export class Game_Message {
 	private _texts: string[];
 	private _choices: any[];
@@ -199,3 +201,7 @@ export class Game_Message {
 		return this._texts.join("\n");
 	}
 }
+
+set$gameMessageFactory(() => {
+	return new Game_Message();
+});
