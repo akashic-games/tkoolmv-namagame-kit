@@ -1,5 +1,5 @@
-import { Graphics } from "../core";
-import { $gameMessage } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { $gameMessage } from "../managers/globals";
 import { Window_Command } from "./WindowCommand";
 import type { Window_Message } from "./WindowMessage";
 

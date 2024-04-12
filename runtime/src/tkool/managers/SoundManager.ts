@@ -1,5 +1,5 @@
-import { AudioManager } from "../managers";
-import { $dataSystem } from "../managers/DataManager";
+import { AudioManager } from "./AudioManager";
+import { $dataSystem } from "./globals";
 
 export class SoundManager {
 	static preloadImportantSounds() {

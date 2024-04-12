@@ -1,4 +1,4 @@
-import { $dataStates } from "../managers/DataManager";
+import { $dataStates } from "../managers/globals";
 
 export class Game_ActionResult {
 	used: boolean;

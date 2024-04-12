@@ -1,6 +1,6 @@
-import { Graphics } from "../core";
-import { DataManager } from "../managers";
-import { $gameVariables, $gameMessage } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { DataManager } from "../managers/DataManager";
+import { $gameVariables, $gameMessage } from "../managers/globals";
 import { Window_ItemList } from "./WindowItemList";
 import type { Window_Message } from "./WindowMessage";
 

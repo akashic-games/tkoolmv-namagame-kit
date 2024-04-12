@@ -1,4 +1,4 @@
-import { $dataSystem, $gameMap } from "../managers/DataManager";
+import { $dataSystem, $gameMap, set$gameVariablesFactory } from "../managers/globals";
 
 export class Game_Variables {
 	_data: number[];
@@ -33,3 +33,7 @@ export class Game_Variables {
 		$gameMap.requestRefresh();
 	}
 }
+
+set$gameVariablesFactory(() => {
+	return new Game_Variables();
+});

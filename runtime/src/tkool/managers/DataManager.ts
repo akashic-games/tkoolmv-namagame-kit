@@ -1,55 +1,29 @@
-import { Graphics, Utils } from "../core";
+import { Graphics } from "../core/Graphics";
+import { Utils } from "../core/Utils";
 import {
-	Game_Player,
-	Game_Party,
-	Game_Actors,
-	Game_System,
-	Game_Timer,
-	Game_Message,
-	Game_Troop,
-	Game_Map,
-	Game_Screen,
-	Game_Temp,
-	Game_Variables,
-	Game_SelfSwitches
-} from "../objects";
-import { Game_Switches } from "../objects/GameSwitches";
+	$dataArmors,
+	$dataItems,
+	$dataMap,
+	$dataSkills,
+	$dataSystem,
+	$dataWeapons,
+	$gameActors,
+	$gameMap,
+	$gameParty,
+	$gamePlayer,
+	$gameScreen,
+	$gameSelfSwitches,
+	$gameSwitches,
+	$gameSystem,
+	$gameTimer,
+	$gameVariables,
+	createGlobals,
+	set$dataMap
+} from "./globals";
 import { ImageManager } from "./ImageManager";
 import { StorageManager } from "./StorageManager";
 
 declare const console: any;
-
-export const $dataActors: any = null;
-export const $dataClasses: any = null;
-export const $dataSkills: any = null;
-export const $dataItems: any = null;
-export const $dataWeapons: any = null;
-export const $dataArmors: any = null;
-export const $dataEnemies: any = null;
-export const $dataTroops: any = null;
-export const $dataStates: any = null;
-export const $dataAnimations: any = null;
-export const $dataTilesets: any = null;
-export const $dataCommonEvents: any = null;
-export const $dataSystem: any = null;
-export const $dataMapInfos: any = null;
-export let $dataMap: any = null;
-
-export let $gameTemp: Game_Temp = null;
-export let $gameSystem: Game_System = null;
-export let $gameScreen: Game_Screen = null;
-export let $gameTimer: Game_Timer = null;
-export let $gameMessage: Game_Message = null;
-export let $gameSwitches: any = null;
-export let $gameVariables: Game_Variables = null;
-export let $gameSelfSwitches: Game_SelfSwitches = null;
-export let $gameActors: Game_Actors = null;
-export let $gameParty: Game_Party = null;
-export let $gameTroop: Game_Troop = null;
-export let $gameMap: Game_Map = null;
-export let $gamePlayer: Game_Player = null;
-
-export const $testEvent: any = null;
 
 export class DataManager {
 	static _globalId: string = "RPGMV";
@@ -140,12 +114,13 @@ export class DataManager {
 	}
 
 	static makeEmptyMap() {
-		$dataMap = {};
-		$dataMap.data = [];
-		$dataMap.events = [];
-		$dataMap.width = 100;
-		$dataMap.height = 100;
-		$dataMap.scrollType = 3;
+		const dataMap: any = {};
+		dataMap.data = [];
+		dataMap.events = [];
+		dataMap.width = 100;
+		dataMap.height = 100;
+		dataMap.scrollType = 3;
+		set$dataMap(dataMap);
 	}
 
 	static isMapLoaded() {
@@ -231,19 +206,7 @@ export class DataManager {
 	}
 
 	static createGameObjects() {
-		$gameTemp = new Game_Temp();
-		$gameSystem = new Game_System();
-		$gameScreen = new Game_Screen();
-		$gameTimer = new Game_Timer();
-		$gameMessage = new Game_Message();
-		$gameSwitches = new Game_Switches();
-		$gameVariables = new Game_Variables();
-		$gameSelfSwitches = new Game_SelfSwitches();
-		$gameActors = new Game_Actors();
-		$gameParty = new Game_Party();
-		$gameTroop = new Game_Troop();
-		$gameMap = new Game_Map();
-		$gamePlayer = new Game_Player();
+		createGlobals();
 	}
 
 	static setupNewGame() {
@@ -477,16 +440,7 @@ export class DataManager {
 		return contents;
 	}
 
-	static extractSaveContents(contents: any) {
-		$gameSystem = contents.system;
-		$gameScreen = contents.screen;
-		$gameTimer = contents.timer;
-		$gameSwitches = contents.switches;
-		$gameVariables = contents.variables;
-		$gameSelfSwitches = contents.selfSwitches;
-		$gameActors = contents.actors;
-		$gameParty = contents.party;
-		$gameMap = contents.map;
-		$gamePlayer = contents.player;
+	static extractSaveContents(_contents: any) {
+		//
 	}
 }

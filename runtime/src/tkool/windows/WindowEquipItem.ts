@@ -1,5 +1,5 @@
 import { JsonEx } from "../core/JsonEx";
-import type { Game_Actor } from "../objects";
+import type { Game_Actor } from "../objects/GameActor";
 import type { Window_EquipStatus } from "./WindowEquipStatus";
 import { Window_ItemList } from "./WindowItemList";
 

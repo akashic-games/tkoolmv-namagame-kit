@@ -1,4 +1,4 @@
-import { $dataArmors, $dataItems, $dataWeapons, $gameParty } from "../managers/DataManager";
+import { $gameParty, $dataItems, $dataWeapons, $dataArmors } from "../managers/globals";
 import { Window_Selectable } from "./WindowSelectable";
 import type { Window_ShopStatus } from "./WindowShopStatus";
 

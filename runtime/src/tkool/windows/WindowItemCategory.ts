@@ -1,5 +1,5 @@
-import { Graphics } from "../core";
-import { TextManager } from "../managers";
+import { Graphics } from "../core/Graphics";
+import { TextManager } from "../managers/TextManager";
 import { Window_HorzCommand } from "./WindowHorzCommand";
 import type { Window_ItemList } from "./WindowItemList";
 

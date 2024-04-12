@@ -1,6 +1,6 @@
-import { Graphics } from "../core";
-import { ImageManager } from "../managers";
-import { $gameParty } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { $gameParty } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
 import { Window_Base } from "./WindowBase";
 import { Window_Selectable } from "./WindowSelectable";
 

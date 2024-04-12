@@ -1,6 +1,17 @@
-import { Graphics, TouchInput, Utils } from "../core";
-import { BattleManager } from "../managers";
-import { $dataSystem, $gameParty, $gameMap, $gameTemp, $gameMessage, $gameSystem, $dataTroops } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { TouchInput } from "../core/TouchInput";
+import { Utils } from "../core/Utils";
+import { BattleManager } from "../managers/BattleManager";
+import {
+	$dataSystem,
+	$gameParty,
+	$gameMap,
+	$gameTemp,
+	$gameMessage,
+	$gameSystem,
+	$dataTroops,
+	set$gamePlayerFactory
+} from "../managers/globals";
 import { Game_Character } from "./GameCharacter";
 import { Game_Followers } from "./GameFollowers";
 
@@ -646,3 +657,7 @@ export class Game_Player extends Game_Character {
 		return this._followers.areGathered();
 	}
 }
+
+set$gamePlayerFactory(() => {
+	return new Game_Player();
+});

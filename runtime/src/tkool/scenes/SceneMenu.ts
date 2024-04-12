@@ -1,8 +1,8 @@
-import { Graphics } from "../core";
-import { SceneManager } from "../managers";
-import { $gameParty } from "../managers/DataManager";
-import { Window_MenuCommand } from "../windows";
+import { Graphics } from "../core/Graphics";
+import { $gameParty } from "../managers/globals";
+import { SceneManager } from "../managers/SceneManager";
 import { Window_Gold } from "../windows/WindowGold";
+import { Window_MenuCommand } from "../windows/WindowMenuCommand";
 import { Window_MenuStatus } from "../windows/WindowMenuStatus";
 import { Scene_Equip } from "./SceneEquip";
 import { Scene_GameEnd } from "./SceneGameEnd";

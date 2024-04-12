@@ -5,6 +5,7 @@ import { TouchInput as TouchInput_ } from "../core/TouchInput";
 import { Utils as Utils_ } from "../core/Utils";
 import { AudioManager as AudioManager_ } from "../managers/AudioManager";
 import { BattleManager as BattleManager_ } from "../managers/BattleManager";
+import { DataManager as DataManager_ } from "../managers/DataManager";
 import {
 	$gameSystem as $gameSystem_,
 	$gameSwitches as $gameSwitches_,
@@ -33,9 +34,8 @@ import {
 	$dataStates as $dataStates_,
 	$dataSystem as $dataSystem_,
 	$dataMapInfos as $dataMapInfos_,
-	$dataMap as $dataMap_,
-	DataManager as DataManager_
-} from "../managers/DataManager";
+	$dataMap as $dataMap_
+} from "../managers/globals";
 import { ImageManager as ImageManager_ } from "../managers/ImageManager";
 import { SceneManager as SceneManager_ } from "../managers/SceneManager";
 import { SoundManager as SoundManager_ } from "../managers/SoundManager";
@@ -133,12 +133,9 @@ function setGameObjects() {
 	TextManager = TextManager_;
 }
 
-// スクリプト(eval)で利用するグローバル変数の初期化を可能にする関数
-// エントリポイントでのみ呼び出す想定
-export function registerResetHandlerForGameCharacter() {
-	if (!DataManager_._onReset.contains(setGameObjects)) {
-		DataManager_._onReset.add(setGameObjects);
-	}
+// スクリプト(eval)で利用するグローバル変数の初期化を可能にする
+if (!DataManager_._onReset.contains(setGameObjects)) {
+	DataManager_._onReset.add(setGameObjects);
 }
 
 function randomInt(max: number) {

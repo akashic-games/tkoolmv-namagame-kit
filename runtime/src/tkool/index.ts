@@ -1,4 +1,6 @@
 export { DataManager } from "./managers/DataManager";
+export * from "./managers/globals";
+
 export { Bitmap } from "./core/Bitmap";
 export type { CacheEntry } from "./core/CacheEntry";
 export { Graphics } from "./core/Graphics";
@@ -141,7 +143,3 @@ export { Window_SkillType } from "./windows/WindowSkillType";
 export { Window_Status } from "./windows/WindowStatus";
 export { Window_TitleCommand } from "./windows/WindowTitleCommand";
 export { Window_SavefileList } from "./windows/WindowSavefileList";
-
-export { registerResetHandlerForGameAction } from "./objects/GameAction";
-export { registerResetHandlerForGameCharacter } from "./objects/GameCharacter";
-export { registerResetHandlerForGameInterpreter } from "./objects/GameInterpreter";

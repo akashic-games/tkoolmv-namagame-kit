@@ -1,5 +1,6 @@
-import { TextManager, DataManager } from "../managers";
-import { $gameSystem, $gameParty, $dataSystem } from "../managers/DataManager";
+import { DataManager } from "../managers/DataManager";
+import { $gameSystem, $gameParty, $dataSystem } from "../managers/globals";
+import { TextManager } from "../managers/TextManager";
 import { Window_Command } from "./WindowCommand";
 
 export class Window_MenuCommand extends Window_Command {

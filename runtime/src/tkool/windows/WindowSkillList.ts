@@ -1,5 +1,5 @@
-import { $gameParty } from "../managers/DataManager";
-import type { Game_Actor } from "../objects";
+import { $gameParty } from "../managers/globals";
+import type { Game_Actor } from "../objects/GameActor";
 import { Window_Selectable } from "./WindowSelectable";
 
 export class Window_SkillList extends Window_Selectable {

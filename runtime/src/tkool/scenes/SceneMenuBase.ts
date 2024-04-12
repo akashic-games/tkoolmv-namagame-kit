@@ -1,8 +1,8 @@
 import { Sprite } from "../core/Sprite";
-import { SceneManager } from "../managers";
-import { $gameParty } from "../managers/DataManager";
+import { $gameParty } from "../managers/globals";
+import { SceneManager } from "../managers/SceneManager";
 import type { Game_Actor } from "../objects/GameActor";
-import { Window_Help } from "../windows";
+import { Window_Help } from "../windows/WindowHelp";
 import { Scene_Base } from "./SceneBase";
 
 export class Scene_MenuBase extends Scene_Base {

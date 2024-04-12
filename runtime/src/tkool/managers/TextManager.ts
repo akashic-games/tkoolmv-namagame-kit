@@ -1,4 +1,4 @@
-import { $dataSystem } from "./DataManager";
+import { $dataSystem } from "./globals";
 
 export class TextManager {
 	static basic(basicId: number): string {

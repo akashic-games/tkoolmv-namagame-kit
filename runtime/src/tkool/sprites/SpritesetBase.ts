@@ -1,7 +1,12 @@
-import { Graphics, ScreenSprite, Utils, Sprite, ToneSprite } from "../core";
-import { $gameScreen } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { ScreenSprite } from "../core/ScreenSprite";
+import { Sprite } from "../core/Sprite";
+import { ToneSprite } from "../core/ToneSprite";
+import { Utils } from "../core/Utils";
+import { $gameScreen } from "../managers/globals";
 import type { Filter } from "../PIXI/filters";
-import { Sprite_Timer, Sprite_Picture } from "../sprites";
+import { Sprite_Picture } from "./SpritePicture";
+import { Sprite_Timer } from "./SpriteTimer";
 
 export class Spriteset_Base extends Sprite {
 	protected _baseSprite: Sprite;

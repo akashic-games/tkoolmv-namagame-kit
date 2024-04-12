@@ -1,8 +1,8 @@
-import type { Stage } from "../core";
-import { Sprite } from "../core";
-import { ImageManager } from "../managers";
-import { $gameMap, $dataAnimations } from "../managers/DataManager";
-import type { Game_Character } from "../objects";
+import { Sprite } from "../core/Sprite";
+import type { Stage } from "../core/Stage";
+import { $gameMap, $dataAnimations } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import type { Game_Character } from "../objects/GameCharacter";
 import type { Container } from "../PIXI";
 import { Sprite_Balloon } from "./SpriteBalloon";
 import { Sprite_Base } from "./SpriteBase";

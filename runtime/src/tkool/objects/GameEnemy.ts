@@ -1,5 +1,4 @@
-import { Utils } from "../core";
-import { SoundManager } from "../managers";
+import { Utils } from "../core/Utils";
 import {
 	$gameTroop,
 	$gameParty,
@@ -9,7 +8,8 @@ import {
 	$dataArmors,
 	$dataSkills,
 	$gameSwitches
-} from "../managers/DataManager";
+} from "../managers/globals";
+import { SoundManager } from "../managers/SoundManager";
 import { Game_Battler } from "./GameBattler";
 import type { Game_Unit } from "./GameUnit";
 

@@ -1,5 +1,8 @@
-import { DataManager, SceneManager, SoundManager, TextManager } from "../managers";
-import { $dataSystem, $gameMap, $gamePlayer, $gameSystem } from "../managers/DataManager";
+import { DataManager } from "../managers/DataManager";
+import { $dataSystem, $gameMap, $gamePlayer, $gameSystem } from "../managers/globals";
+import { SceneManager } from "../managers/SceneManager";
+import { SoundManager } from "../managers/SoundManager";
+import { TextManager } from "../managers/TextManager";
 import { Scene_File } from "./SceneFile";
 import { Scene_Map } from "./SceneMap";
 

@@ -1,4 +1,5 @@
-import { BattleManager } from "../managers";
+import { BattleManager } from "../managers/BattleManager";
+import { set$gameTimerFactory } from "../managers/globals";
 
 export class Game_Timer {
 	private _frames: number;
@@ -43,3 +44,7 @@ export class Game_Timer {
 		BattleManager.abort();
 	}
 }
+
+set$gameTimerFactory(() => {
+	return new Game_Timer();
+});

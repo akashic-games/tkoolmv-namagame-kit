@@ -1,9 +1,11 @@
-import { Graphics } from "../core";
-import { SceneManager, SoundManager } from "../managers";
-import { $gameParty, $gameTemp } from "../managers/DataManager";
-import type { Game_Actor, Game_Battler } from "../objects";
-import { Game_Action } from "../objects";
-import type { Window_Base } from "../windows";
+import { Graphics } from "../core/Graphics";
+import { $gameParty, $gameTemp } from "../managers/globals";
+import { SceneManager } from "../managers/SceneManager";
+import { SoundManager } from "../managers/SoundManager";
+import { Game_Action } from "../objects/GameAction";
+import type { Game_Actor } from "../objects/GameActor";
+import type { Game_Battler } from "../objects/GameBattler";
+import type { Window_Base } from "../windows/WindowBase";
 import type { Window_ItemList } from "../windows/WindowItemList";
 import { Window_MenuActor } from "../windows/WindowMenuActor";
 import type { Window_Selectable } from "../windows/WindowSelectable";

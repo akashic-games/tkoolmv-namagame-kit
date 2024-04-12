@@ -1,5 +1,6 @@
-import { Graphics } from "../core";
-import { SoundManager, TextManager } from "../managers";
+import { Graphics } from "../core/Graphics";
+import { SoundManager } from "../managers/SoundManager";
+import { TextManager } from "../managers/TextManager";
 import { Window_Command } from "./WindowCommand";
 
 export class Window_Options extends Window_Command {

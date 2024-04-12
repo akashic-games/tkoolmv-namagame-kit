@@ -1,5 +1,6 @@
-import { Graphics } from "../core";
-import { TextManager, BattleManager } from "../managers";
+import { Graphics } from "../core/Graphics";
+import { BattleManager } from "../managers/BattleManager";
+import { TextManager } from "../managers/TextManager";
 import { Window_Command } from "./WindowCommand";
 
 export class Window_PartyCommand extends Window_Command {

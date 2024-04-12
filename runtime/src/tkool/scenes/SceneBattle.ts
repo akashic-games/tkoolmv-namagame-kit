@@ -1,20 +1,21 @@
-import { Graphics } from "../core";
-import { SceneManager, BattleManager, ImageManager, AudioManager } from "../managers";
-import { $gameTimer, $gameScreen, $gameParty, $gameTroop, $gameMessage } from "../managers/DataManager";
-import { Spriteset_Battle } from "../sprites";
-import {
-	Window_Message,
-	Window_ScrollText,
-	Window_BattleLog,
-	Window_BattleStatus,
-	Window_PartyCommand,
-	Window_ActorCommand,
-	Window_Help,
-	Window_BattleSkill,
-	Window_BattleItem,
-	Window_BattleActor,
-	Window_BattleEnemy
-} from "../windows";
+import { Graphics } from "../core/Graphics";
+import { AudioManager } from "../managers/AudioManager";
+import { BattleManager } from "../managers/BattleManager";
+import { $gameTimer, $gameScreen, $gameParty, $gameTroop, $gameMessage } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import { SceneManager } from "../managers/SceneManager";
+import { Spriteset_Battle } from "../sprites/SpritesetBattle";
+import { Window_ActorCommand } from "../windows/WindowActorCommand";
+import { Window_BattleActor } from "../windows/WindowBattleActor";
+import { Window_BattleEnemy } from "../windows/WindowBattleEnemy";
+import { Window_BattleItem } from "../windows/WindowBattleItem";
+import { Window_BattleLog } from "../windows/WindowBattleLog";
+import { Window_BattleSkill } from "../windows/WindowBattleSkill";
+import { Window_BattleStatus } from "../windows/WindowBattleStatus";
+import { Window_Help } from "../windows/WindowHelp";
+import { Window_Message } from "../windows/WindowMessage";
+import { Window_PartyCommand } from "../windows/WindowPartyCommand";
+import { Window_ScrollText } from "../windows/WindowScrollText";
 import { Scene_Base } from "./SceneBase";
 import { Scene_Gameover } from "./SceneGameOver";
 import { Scene_Title } from "./SceneTitle";

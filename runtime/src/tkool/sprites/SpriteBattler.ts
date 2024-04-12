@@ -1,5 +1,5 @@
-import { $dataAnimations } from "../managers/DataManager";
-import type { Game_Battler } from "../objects";
+import { $dataAnimations } from "../managers/globals";
+import type { Game_Battler } from "../objects/GameBattler";
 import { Sprite_Base } from "./SpriteBase";
 import { Sprite_Damage } from "./SpriteDamage";
 

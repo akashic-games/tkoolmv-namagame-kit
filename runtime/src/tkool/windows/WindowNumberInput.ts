@@ -1,7 +1,10 @@
-import { Graphics, TouchInput, Utils } from "../core";
-import { ImageManager, SoundManager } from "../managers";
-import { $gameMessage, $gameVariables } from "../managers/DataManager";
-import { Sprite_Button } from "../sprites";
+import { Graphics } from "../core/Graphics";
+import { TouchInput } from "../core/TouchInput";
+import { Utils } from "../core/Utils";
+import { $gameMessage, $gameVariables } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import { SoundManager } from "../managers/SoundManager";
+import { Sprite_Button } from "../sprites/SpriteButton";
 import type { Window_Message } from "./WindowMessage";
 import { Window_Selectable } from "./WindowSelectable";
 

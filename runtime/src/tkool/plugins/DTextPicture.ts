@@ -75,10 +75,19 @@
 // [GitHub] : https://github.com/triacontane/
 // =============================================================================
 
-import { Bitmap } from "../core/Bitmap";
-import { Graphics } from "../core/Graphics";
-import { Sprite } from "../core/Sprite";
 import {
+	Bitmap,
+	Graphics,
+	Sprite,
+	ImageManager,
+	PluginManager,
+	SceneManager,
+	Game_Interpreter,
+	Game_Picture,
+	Game_Screen,
+	Game_Variables,
+	Sprite_Picture,
+	Window_Base,
 	$dataArmors,
 	$dataItems,
 	$dataSkills,
@@ -87,16 +96,7 @@ import {
 	$gameScreen,
 	$gameSwitches,
 	$gameVariables
-} from "../managers/DataManager";
-import { ImageManager } from "../managers/ImageManager";
-import { PluginManager } from "../managers/PluginManager";
-import { SceneManager } from "../managers/SceneManager";
-import { Game_Interpreter } from "../objects/GameInterpreter";
-import { Game_Picture } from "../objects/GamePicture";
-import { Game_Screen } from "../objects/GameScreen";
-import { Game_Variables } from "../objects/GameVariables";
-import { Sprite_Picture } from "../sprites/SpritePicture";
-import { Window_Base } from "../windows/WindowBase";
+} from "../../tkool/index";
 
 // 自動翻訳プラグイン。 any でアンビエント宣言とする。
 // eslint-disable-next-line @typescript-eslint/naming-convention

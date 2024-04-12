@@ -1,6 +1,6 @@
-import { Graphics } from "../core";
-import { DataManager } from "../managers";
-import { Window_Help } from "../windows";
+import { Graphics } from "../core/Graphics";
+import { DataManager } from "../managers/DataManager";
+import { Window_Help } from "../windows/WindowHelp";
 import { Window_SavefileList } from "../windows/WindowSavefileList";
 import { Scene_MenuBase } from "./SceneMenuBase";
 

@@ -1,6 +1,7 @@
-import { Sprite } from "../core";
-import { ImageManager, BattleManager } from "../managers";
-import type { Game_Actor } from "../objects";
+import { Sprite } from "../core/Sprite";
+import { BattleManager } from "../managers/BattleManager";
+import { ImageManager } from "../managers/ImageManager";
+import type { Game_Actor } from "../objects/GameActor";
 import { Sprite_Base } from "./SpriteBase";
 import { Sprite_Battler } from "./SpriteBattler";
 import { Sprite_StateOverlay } from "./SpriteStateOverlay";

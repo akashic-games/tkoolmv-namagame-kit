@@ -1,8 +1,14 @@
-import { Graphics, Sprite, TilingSprite } from "../core";
-import { ImageManager, BattleManager, SceneManager } from "../managers";
-import { $gameSystem, $gameMap, $dataSystem, $gamePlayer, $gameTroop, $gameParty } from "../managers/DataManager";
-import type { Sprite_Battler } from "../sprites";
-import { Spriteset_Base, Sprite_Actor, Sprite_Enemy } from "../sprites";
+import { Graphics } from "../core/Graphics";
+import { Sprite } from "../core/Sprite";
+import { TilingSprite } from "../core/TilingSprite";
+import { BattleManager } from "../managers/BattleManager";
+import { $dataSystem, $gameMap, $gameParty, $gamePlayer, $gameSystem, $gameTroop } from "../managers/globals";
+import { ImageManager } from "../managers/ImageManager";
+import { SceneManager } from "../managers/SceneManager";
+import { Sprite_Actor } from "./SpriteActor";
+import type { Sprite_Battler } from "./SpriteBattler";
+import { Sprite_Enemy } from "./SpriteEnemy";
+import { Spriteset_Base } from "./SpritesetBase";
 
 export class Spriteset_Battle extends Spriteset_Base {
 	private _battlebackLocated: boolean;

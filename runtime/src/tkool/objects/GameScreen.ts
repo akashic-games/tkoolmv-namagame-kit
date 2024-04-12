@@ -1,6 +1,6 @@
-import { Utils } from "../core";
-import { $gameParty } from "../managers/DataManager";
-import { Game_Picture } from "../objects/GamePicture";
+import { Utils } from "../core/Utils";
+import { $gameParty, set$gameScreenFactory } from "../managers/globals";
+import { Game_Picture } from "./GamePicture";
 
 export class Game_Screen {
 	private _brightness: number;
@@ -356,3 +356,7 @@ export class Game_Screen {
 		this._pictures[realPictureId] = null;
 	}
 }
+
+set$gameScreenFactory(() => {
+	return new Game_Screen();
+});

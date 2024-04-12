@@ -1,7 +1,9 @@
-import { TouchInput } from "../core";
-import { DataManager, SoundManager, TextManager } from "../managers";
-import { $gameParty } from "../managers/DataManager";
-import type { Game_Actor } from "../objects";
+import { TouchInput } from "../core/TouchInput";
+import { DataManager } from "../managers/DataManager";
+import { $gameParty } from "../managers/globals";
+import { SoundManager } from "../managers/SoundManager";
+import { TextManager } from "../managers/TextManager";
+import type { Game_Actor } from "../objects/GameActor";
 import { Window_Base } from "./WindowBase";
 
 export class Window_ShopStatus extends Window_Base {

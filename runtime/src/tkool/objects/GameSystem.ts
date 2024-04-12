@@ -1,6 +1,7 @@
-import { Graphics, Utils } from "../core";
-import { AudioManager } from "../managers";
-import { $dataMap, $dataSystem } from "../managers/DataManager";
+import { Graphics } from "../core/Graphics";
+import { Utils } from "../core/Utils";
+import { AudioManager } from "../managers/AudioManager";
+import { $dataMap, $dataSystem, set$gameSystemFactory } from "../managers/globals";
 
 export class Game_System {
 	_saveEnabled: boolean;
@@ -232,3 +233,7 @@ export class Game_System {
 		this._walkingBgm = $dataMap.bgm;
 	}
 }
+
+set$gameSystemFactory(() => {
+	return new Game_System();
+});

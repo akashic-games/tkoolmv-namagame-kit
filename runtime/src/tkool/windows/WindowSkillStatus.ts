@@ -1,4 +1,4 @@
-import type { Game_Actor } from "../objects";
+import type { Game_Actor } from "../objects/GameActor";
 import { Window_Base } from "./WindowBase";
 
 export class Window_SkillStatus extends Window_Base {
