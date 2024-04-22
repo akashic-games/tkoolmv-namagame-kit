@@ -6,11 +6,19 @@ const os = require("os");
 const path = require("path");
 const sh = require("shelljs");
 const archiver = require("archiver");
-const { execCommand } = require("./execCommand");
 
 const tmpDirPath = fs.mkdtempSync(path.join(os.tmpdir(), "tkoolmv-namagame-kit"));
 const tkoolmvConverDirPath = path.resolve(__dirname, "..", "module", "tkoolmv-namagame-converter");
 const packageJson = require(path.resolve(__dirname, "..", "package.json"));
+
+function execCommand(command) {
+	const result = sh.exec(command);
+	if (result.code !== 0) {
+		console.error(result.stderr);
+		process.exit(1);
+	}
+	return result.stdout.trim();
+}
 
 (async() => {
 	// zipファイルの作成
@@ -20,7 +28,12 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 		sh.rm("-Rf", zipDirPath);
 	}
 	fs.mkdirSync(zipDirPath);
-	// TODO: ランタイムのインストール・同梱
+
+	// ランタイムのインストール・同梱
+	execCommand("npm i @akashic/tkoolmv-namagame-runtime@latest"); // コアスクリプトを runtime モジュールから取得するため npm install する
+	const tkoolmvRuntimeDirPath = path.resolve(__dirname, "../node_modules/@akashic/tkoolmv-namagame-runtime/dist/tkoolmv-namagame-runtime");
+	sh.cp("-R", path.join(tkoolmvRuntimeDirPath, "*"), zipDirPath);
+	execCommand("npm uninstall @akashic/tkoolmv-namagame-runtime"); // 以降で runtime は不要なので uninstall
 
 	// コンバーターの同梱
 	const converterPackageJson = require(path.join(tkoolmvConverDirPath, "package.json"));
@@ -42,7 +55,11 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 	console.log(`Completed: ${zipPath}`);
 
 	// ReleaseNoteの作成とzipファイルのアップロード
-	const releaseNoteContent = ""; // TODO: runtimeとconverterのバージョンを記載するように
+	const runtimeVersion = execCommand("npm info @akashic/tkoolmv-namagame-runtime@latest version");
+	const releaseNoteContent = `* @akashic/tkoolmv-namagame-kit@${version}
+  * @akashic/tkoolmv-namagame-converter@${converterVersion}
+  * @akashic/tkoolmv-namagame-runtime@${runtimeVersion}
+`;
 	execCommand(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
 	sh.exec(`gh release create "v${version}" -t "Release v${version}" --target "main" -F "${releaseNoteContent}"`);
 	execCommand(`gh release upload "v${version}" "${zipPath}"`);

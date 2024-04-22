@@ -5,9 +5,11 @@
   "description": "RPGツクールMV製ゲームをニコ生ゲームに変換するツール・テンプレートをまとめたリポジトリです。",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "git submodule update --init --recursive && cd scripts && npm i",
-    "release": "npm run release:converter && npm run update-version && npm run release:zip",
-    "release:converter": "cd module/tkoolmv-namagame-converter && npm run build-ffmpeg && npm i && npm run release:win",
+    "build": "git submodule update --init --recursive && npm run build:converter",
+    "build:converter": "cd module/tkoolmv-namagame-converter && npm i && cd ..",
+    "release": "npm run update-converter && npm run release:converter && npm run update-version && npm run release:zip",
+    "update-converter": "node scripts/updateConverter.js",
+    "release:converter": "cd module/tkoolmv-namagame-converter && npm run build-ffmpeg && npm run release:win",
     "update-version": "node scripts/updateVersion.js",
     "release:zip": "node scripts/releaseZip.js"
   },
@@ -16,5 +18,9 @@
   "repository": {
     "type": "git",
     "url": "akashic-games/tkoolmv-namagame-kit.git"
+  },
+  "devDependencies": {
+    "archiver": "^5.3.1",
+    "shelljs": "^0.8.5"
   }
 }

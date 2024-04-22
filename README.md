@@ -30,7 +30,10 @@ npm run release
 
 - コンバーターのリポジトリに現バージョンの Release Note とタグを作成
 - コンバーターの zip を署名付きで、上記 Release Note にアップロード
-- 本リポジトリの main ブランチ更新
+- 以下の内容で本リポジトリの main ブランチ更新
+  - tkoolmv-namagame-converter サブモジュールを最新に更新
+  - patch バージョン更新
+  - CHANGELOG 更新
 - 本リポジトリに現バージョンの Release Note とタグを作成
 - キットの zip を作成して、上記 Release Note にアップロード
 
