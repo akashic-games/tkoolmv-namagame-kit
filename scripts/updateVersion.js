@@ -18,8 +18,8 @@ const runtimeVersion = execCommand("npm info @akashic/tkoolmv-namagame-runtime@l
 const content = `# CHANGELOG
 
 ## ${version}
-* @akashic/tkoolmv-namagame-converter@${converterVersion}
-* @akashic/tkoolmv-namagame-runtime@${runtimeVersion}`;
+* [@akashic/tkoolmv-namagame-converter@${converterVersion}](https://github.com/akashic-games/tkoolmv-namagame-converter/releases/tag/v${converterVersion})
+* [@akashic/tkoolmv-namagame-runtime@${runtimeVersion}](https://github.com/akashic-games/tkoolmv-namagame-runtime/releases/tag/v${runtimeVersion})`;
 fs.writeFileSync(changelogPath, changelog.replace("# CHANGELOG", content));
 // github に反映
 execCommand("git add CHANGELOG.md");

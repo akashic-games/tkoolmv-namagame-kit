@@ -40,8 +40,11 @@ function execCommand(command) {
 	const converterVersion = converterPackageJson["version"];
 	sh.cp(path.join(tkoolmvConverDirPath, "dist", `*${converterVersion}.exe`), zipDirPath);
 
+	// CHANGELOGの同梱
+	sh.cp(path.resolve(__dirname, "..", "CHANGELOG.md"), zipDirPath);
+
 	// zip圧縮処理
-	const zipPath = `${zipDirPath}.zip`;
+	const zipPath = path.join(tmpDirPath, `tkoolmv-namagame-kit.zip`);
 	const ostream = fs.createWriteStream(zipPath);
 	// zip圧縮完了の通知が来るまで待機するための処理
 	const streamClosePromise = new Promise(resolve => ostream.on("close", resolve));
@@ -57,8 +60,8 @@ function execCommand(command) {
 	// ReleaseNoteの作成とzipファイルのアップロード
 	const runtimeVersion = execCommand("npm info @akashic/tkoolmv-namagame-runtime@latest version");
 	const releaseNoteContent = `* @akashic/tkoolmv-namagame-kit@${version}
-  * @akashic/tkoolmv-namagame-converter@${converterVersion}
-  * @akashic/tkoolmv-namagame-runtime@${runtimeVersion}
+  * [@akashic/tkoolmv-namagame-converter@${converterVersion}](https://github.com/akashic-games/tkoolmv-namagame-converter/releases/tag/v${converterVersion})
+  * [@akashic/tkoolmv-namagame-runtime@${runtimeVersion}](https://github.com/akashic-games/tkoolmv-namagame-runtime/releases/tag/v${runtimeVersion})
 `;
 	execCommand(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
 	sh.exec(`gh release create "v${version}" -t "Release v${version}" --target "main" -F "${releaseNoteContent}"`);
