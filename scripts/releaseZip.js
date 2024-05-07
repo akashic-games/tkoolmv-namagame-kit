@@ -46,7 +46,7 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 	const releaseNoteContent = `* @akashic/tkoolmv-namagame-kit@${version}
   * [@akashic/tkoolmv-namagame-converter@${converterVersion}](https://github.com/akashic-games/tkoolmv-namagame-converter/releases/tag/v${converterVersion})
   * [@akashic/tkoolmv-namagame-runtime@${runtimeVersion}](https://github.com/akashic-games/tkoolmv-namagame-runtime/releases/tag/v${runtimeVersion})
-`
+`;
 	execCommand(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
 	sh.exec(`gh release create "v${version}" -t "Release v${version}" --target "main" -F "${releaseNoteContent}"`);
 	execCommand(`gh release upload "v${version}" "${zipPath}"`);
