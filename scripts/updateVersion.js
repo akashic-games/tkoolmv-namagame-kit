@@ -1,8 +1,13 @@
 const fs = require("fs");
 const path = require("path");
-const sh = require("shelljs");
+const execCommand = require("./util/execCommand");
 
-const target = process.argv.length >= 2 ? process.argv[2] : "patch";
+if (process.argv.length < 2 || !(process.argv[2] === "major" || process.argv[2] === "minor" || process.argv[2] === "patch")) {
+    console.error("Please Run this script as follows:\nnode scripts/updateVersion.js major|minor|patch");
+    process.exit(1);
+}
+
+const target = process.argv[2];
 
 execCommand("git checkout main");
 // バージョン更新
@@ -25,12 +30,3 @@ fs.writeFileSync(changelogPath, changelog.replace("# CHANGELOG", content));
 execCommand("git add CHANGELOG.md");
 execCommand(`git commit -m "Update Kit to v${version}"`);
 execCommand("git push origin main");
-
-function execCommand(command) {
-	const result = sh.exec(command);
-	if (result.code !== 0) {
-		console.error(result.stderr);
-		process.exit(1);
-	}
-	return result.stdout.trim();
-}
