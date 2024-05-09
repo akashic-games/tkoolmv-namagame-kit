@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const execCommand = require("./util/execCommand");
 
-if (process.argv.length < 2 || !(process.argv[2] === "major" || process.argv[2] === "minor" || process.argv[2] === "patch")) {
+if (process.argv.length < 2 || !/^(major|minor|patch)$/.test(process.argv[2])) {
     console.error("Please Run this script as follows:\nnode scripts/updateVersion.js major|minor|patch");
     process.exit(1);
 }

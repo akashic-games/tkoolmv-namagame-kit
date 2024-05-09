@@ -18,11 +18,27 @@
 - [コンバーター](https://github.com/akashic-games/tkoolmv-namagame-converter): ツクールMVのゲームをニコ生ゲームに変換する Windows アプリケーション
 
 ## リリース方法
-以下のコマンドで、RPG ツクール MV ニコ生ゲーム化キットをzip化したものを Github リポジトリの現バージョンのリリースノートにアップロードします。ただし、Windows 環境でしか動作しません。
+RPG ツクール MV ニコ生ゲーム化キットをzip化したものを Github リポジトリの現バージョンのリリースノートにアップロードします。ただし、Windows 環境でしか動作しません。バンプアップしたいバージョンによって実行するコマンドは変わるので、それぞれの実行コマンドを以下に記載します。
+
+### patch バージョンを上げる場合
 
 ```bash
 npm i
-npm run release
+npm run release:patch
+```
+
+### minor バージョンを上げる場合
+
+```bash
+npm i
+npm run release:minor
+```
+
+### major バージョンを上げる場合
+
+```bash
+npm i
+npm run release:major
 ```
 
 ### リリース内容
