@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.0
+* [@akashic/tkoolmv-namagame-converter@2.0.0](https://github.com/akashic-games/tkoolmv-namagame-converter/releases/tag/v2.0.0)
+* [@akashic/tkoolmv-namagame-runtime@2.0.3](https://github.com/akashic-games/tkoolmv-namagame-runtime/releases/tag/v2.0.3)
+
 ## 1.4.0
 - 非サポートプラグインにも対応できるように
 - タイトル画面への遷移時、グローバル変数を初期化し直すように
