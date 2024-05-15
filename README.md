@@ -11,49 +11,47 @@
 [kit]: https://akashic-games.github.io/shin-ichiba/tkool-mv/index.html
 [issue]: https://github.com/akashic-games/tkoolmv-namagame-kit/issues
 
-## ビルド方法
-以下のコマンドでビルドを実行します。
+## キットの構成要素
+キットは以下のものから構成されます
+
+- [ランタイム](https://github.com/akashic-games/tkoolmv-namagame-runtime): ツクールMVのコアスクリプトをニコ生ゲーム用に改造したスクリプト
+- [コンバーター](https://github.com/akashic-games/tkoolmv-namagame-converter): ツクールMVのゲームをニコ生ゲームに変換する Windows アプリケーション
+
+## リリース方法
+RPG ツクール MV ニコ生ゲーム化キットをzip化したものを Github リポジトリの現バージョンのリリースノートにアップロードします。ただし、Windows 環境でしか動作しません。バンプアップしたいバージョンによって実行するコマンドは変わるので、それぞれの実行コマンドを以下に記載します。
+
+### patch バージョンを上げる場合
 
 ```bash
-npm install
+npm i
+npm run release:patch
 ```
 
-上記コマンド実行後、`dist` ディレクトリ下に `tkoolmv-namagame-kit` ディレクトリと `gamejson-helper` が生成されます。
-
-### tkoolmv-namagame-kit の内容
-以下のようなディレクトリ構造になっています。
-- game: ニコ生ゲーム変換用テンプレート
-- plugins: RPGツクールMVで利用するプラグインが配置
-- README.html: RPGツクールMVのゲームをニコ生ゲームに変換する方法が記載されたマニュアル
-
-### gamejson-helper の内容
-以下のようなファイル構造になっています。
-- index.html: game.json生成ページ。公式ページで https://akashic-games.github.io/shin-ichiba/tkool-mv/gamejson-helper/ というURLで利用される
-- index.*.js: game.json生成ページで利用されるスクリプト
-
-## 開発者向け
-
-### runtime/ に .ts ファイルを追加・削除する場合
-
-このディレクトリの成果物は、ゲームにスクリプトアセットとして同梱されるファイルです。
-そのため、ファイルを追加・削除した場合 static/game.json に反映する必要があります。
-
-上の tkoolmv-namgame-kit.zip を生成する手順でゲームのスクリプトファイルを生成した後、
-dist/tkoolmv-namagame-kit/game/game.json を static/game.json に上書きしてコミットしてください。
-
-### テスト方法
-以下のコマンドで、runtime, gamejson-helper, static に対して lint が実行されます。
+### minor バージョンを上げる場合
 
 ```bash
-npm test
+npm i
+npm run release:minor
 ```
 
-### リリース方法
-以下のコマンドで、RPG ツクール MV ニコ生ゲーム化キットをzip化したものを Github リポジトリの現バージョンのリリースノートにアップロードします。ただし、Windows 環境でしか動作しません。
+### major バージョンを上げる場合
 
 ```bash
-npm run release
+npm i
+npm run release:major
 ```
+
+### リリース内容
+上記コマンドで具体的に以下のことが行われます。
+
+- コンバーターのリポジトリに現バージョンの Release Note とタグを作成
+- コンバーターの zip を署名付きで、上記 Release Note にアップロード
+- 以下の内容で本リポジトリの main ブランチ更新
+  - tkoolmv-namagame-converter サブモジュールを最新に更新
+  - patch バージョン更新
+  - CHANGELOG 更新
+- 本リポジトリに現バージョンの Release Note とタグを作成
+- キットの zip を作成して、上記 Release Note にアップロード
 
 ## ライセンス
 本リポジトリは MIT License の元で公開されています。

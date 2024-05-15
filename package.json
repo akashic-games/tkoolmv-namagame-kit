@@ -1,19 +1,20 @@
 {
   "name": "@akashic/tkoolmv-namagame-kit",
+  "private": true,
   "version": "1.4.0",
   "description": "RPGツクールMV製ゲームをニコ生ゲームに変換するツール・テンプレートをまとめたリポジトリです。",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "cd runtime && npm i && cd ../gamejson-helper && npm i && cd ../scripts && npm i && node build.js",
-    "test": "npm run format && npm run lint",
-    "lint": "npm run lint:eslint && npm run lint:textlint",
-    "lint:eslint": "eslint -c runtime/.eslintrc \"runtime/src/**/*.ts\"",
-    "lint:textlint": "textlint -f pretty-error static/ && textlint -f pretty-error runtime/ && textlint -f pretty-error gamejson-helper/",
-    "format": "npm run format:prettier && npm run format:eslint",
-    "format:prettier": "prettier --write \"runtime/src/**/*.ts\" --config prettier.config.json && prettier --write \"gamejson-helper/src/**/*.ts\" --config prettier.config.json",
-    "format:eslint": "eslint -c runtime/.eslintrc \"runtime/src/**/*.ts\" --fix",
-    "release": "npm run release:converter && npm run release:zip",
-    "release:converter": "cd module/tkoolmv-namagame-converter && npm run build-ffmpeg && npm i && npm run release:win",
+    "build": "git submodule update --init --recursive && npm run build:converter",
+    "build:converter": "cd module/tkoolmv-namagame-converter && npm i && cd ..",
+    "release:major": "npm run update-converter && npm run release:converter && npm run update-version:major && npm run release:zip",
+    "release:minor": "npm run update-converter && npm run release:converter && npm run update-version:minor && npm run release:zip",
+    "release:patch": "npm run update-converter && npm run release:converter && npm run update-version:patch && npm run release:zip",
+    "update-converter": "node scripts/updateConverter.js",
+    "release:converter": "cd module/tkoolmv-namagame-converter && npm run build-ffmpeg && npm run release:win",
+    "update-version:major": "node scripts/updateVersion.js major",
+    "update-version:minor": "node scripts/updateVersion.js minor",
+    "update-version:patch": "node scripts/updateVersion.js patch",
     "release:zip": "node scripts/releaseZip.js"
   },
   "author": "DWANGO Co., Ltd.",
@@ -22,26 +23,8 @@
     "type": "git",
     "url": "akashic-games/tkoolmv-namagame-kit.git"
   },
-  "files": [
-    "dist",
-    "package.json",
-    "README.md",
-    "CHANGELOG.md"
-  ],
   "devDependencies": {
-    "@akashic/eslint-config": "^1.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.9.0",
-    "eslint-plugin-import": "^2.28.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.0",
-    "textlint": "^13.3.3",
-    "textlint-rule-max-ten": "^4.0.4",
-    "textlint-rule-no-mix-dearu-desumasu": "^5.0.0"
-  },
-  "publishConfig": {
-    "@akashic:registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "archiver": "^5.3.1",
+    "shelljs": "^0.8.5"
   }
 }
