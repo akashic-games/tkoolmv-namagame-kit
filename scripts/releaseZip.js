@@ -47,7 +47,10 @@ const packageJson = require(path.resolve(__dirname, "..", "package.json"));
   * [@akashic/tkoolmv-namagame-converter@${converterVersion}](https://github.com/akashic-games/tkoolmv-namagame-converter/releases/tag/v${converterVersion})
   * [@akashic/tkoolmv-namagame-runtime@${runtimeVersion}](https://github.com/akashic-games/tkoolmv-namagame-runtime/releases/tag/v${runtimeVersion})
 `;
+	const tmpReleaseNotePath = path.join(os.tmpdir(), `tkoolmv-namagame-kit-release-note-${Date.now()}.md`);
+	// 内容に改行を含む場合、オプションで直接文章を渡すと Releases に全て書き込めないことがあるので、ファイルにしておく
+	fs.writeFileSync(tmpReleaseNotePath, releaseNoteContent);
 	execCommand(`echo ${process.env.GITHUB_CLI_TOKEN} | gh auth login --with-token -h github.com`);
-	sh.exec(`gh release create "v${version}" -t "Release v${version}" --target "main" -F "${releaseNoteContent}"`);
+	sh.exec(`gh release create "v${version}" -t "Release v${version}" --target "main" -F "${tmpReleaseNotePath}"`);
 	execCommand(`gh release upload "v${version}" "${zipPath}"`);
 })();
