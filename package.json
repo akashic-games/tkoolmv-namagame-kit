@@ -11,7 +11,7 @@
     "release:minor": "npm run update-converter && npm run release:converter && npm run update-version:minor && npm run release:zip",
     "release:patch": "npm run update-converter && npm run release:converter && npm run update-version:patch && npm run release:zip",
     "update-converter": "node scripts/updateConverter.js",
-    "release:converter": "cd module/tkoolmv-namagame-converter && npm run build-ffmpeg && npm ci && npm run release:win",
+    "release:converter": "cd module/tkoolmv-namagame-converter && npm ci && npm run build-ffmpeg && npm run release:win",
     "update-version:major": "node scripts/updateVersion.js major",
     "update-version:minor": "node scripts/updateVersion.js minor",
     "update-version:patch": "node scripts/updateVersion.js patch",
