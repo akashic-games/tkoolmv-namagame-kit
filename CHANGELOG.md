@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.3
+* [@akashic/tkoolmv-namagame-converter@2.0.3](https://github.com/akashic-games/tkoolmv-namagame-converter/releases/tag/v2.0.3)
+* [@akashic/tkoolmv-namagame-runtime@2.1.0](https://github.com/akashic-games/tkoolmv-namagame-runtime/releases/tag/v2.1.0)
+
 ## 2.0.2
 * [@akashic/tkoolmv-namagame-converter@2.0.2](https://github.com/akashic-games/tkoolmv-namagame-converter/releases/tag/v2.0.2)
 * [@akashic/tkoolmv-namagame-runtime@2.1.0](https://github.com/akashic-games/tkoolmv-namagame-runtime/releases/tag/v2.1.0)
